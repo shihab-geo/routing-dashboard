@@ -219,6 +219,76 @@ export const Map = forwardRef((props, ref) => {
 
     const distanceMarker = () => {
 
+        const calculateRouteDistance = () => {
+            if (markerFromRef.current && markerToRef.current) {
+                const coordinates = [
+                    markerFromRef.current.getLngLat(),
+                    markerToRef.current.getLngLat()
+                ];
+
+                const fromLngLat = `${coordinates[0].lng},${coordinates[0].lat}`;
+                const toLngLat = `${coordinates[1].lng},${coordinates[1].lat}`;
+
+                const fromLntLatConvert = `${coordinates[0].lng.toFixed(6)},${coordinates[0].lat.toFixed(6)}`;
+                const toLntLatConvert = `${coordinates[1].lng.toFixed(6)},${coordinates[1].lat.toFixed(6)}`;
+
+                //Dispatch the Route From
+                dispatch(setRouteFrom({ data: fromLntLatConvert }));
+
+                //Dispatch the Route To
+                dispatch(setRouteTo({ data: toLntLatConvert }));
+
+                const url = `http://10.75.8.26:5000/route/v1/driving/${fromLngLat};${toLngLat}?steps=true&overview=full&annotations=false&geometries=geojson`;
+
+                fetch(url)
+                    .then(response => response.json())
+                    .then(data => {
+
+                        const distance = data.routes[0].distance / 1000;
+                        const duration = data.routes[0].duration;
+
+                        const totalSeconds = duration;
+
+                        const hours = Math.floor(totalSeconds / 3600);
+                        const minutes = Math.floor((totalSeconds % 3600) / 60);
+                        const seconds = Math.floor(totalSeconds % 60);
+
+
+                        const formatedTime = `${hours}:${minutes}:${seconds}`;
+
+
+                        //Dispatch the Duration
+                        dispatch(setDuration({ data: formatedTime }));
+
+                        //Dispatch the Distance
+                        dispatch(setDistance({ data: distance.toFixed(2) }));
+
+                        setCalculateDistance(distance.toFixed(2));
+
+                        const routeCoordinates = data.routes[0].geometry.coordinates;
+
+                        // Update the route on the map
+                        map.current.getSource('route').setData({
+                            type: 'Feature',
+                            properties: {},
+                            geometry: {
+                                type: 'LineString',
+                                coordinates: routeCoordinates
+                            }
+                        });
+
+
+
+
+                    })
+                    .catch(error => {
+                        console.error('Error calculating route distance:', error);
+                    });
+            }
+        };
+
+
+
 
 
 
