@@ -158,7 +158,7 @@ export const Map = forwardRef((props, ref) => {
 
 
 
-
+    //Call the Base Map
     useEffect(() => {
         if (!map.current) {
             map.current = new mapboxgl.Map({
@@ -178,7 +178,7 @@ export const Map = forwardRef((props, ref) => {
         }
 
 
-        // map.current.on('click', handleMapClick);
+        map.current.on('click', handleMapClick);
 
         return () => {
             if (map.current) {
@@ -186,6 +186,8 @@ export const Map = forwardRef((props, ref) => {
             }
         };
     }, []);
+
+
 
     useEffect(() => {
         if (map.current && markerFromRef.current && markerToRef.current) {
