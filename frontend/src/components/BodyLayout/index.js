@@ -2,8 +2,8 @@ import React, { useEffect, useState } from 'react';
 // import "./index.css";
 import { UserOutlined } from '@ant-design/icons';
 import { Breadcrumb, Layout, Menu, theme, Collapse } from 'antd';
-import { CaretRightOutlined } from '@ant-design/icons';
-import { faRoute, faLandmark, faMapLocationDot, faCompassDrafting } from '@fortawesome/free-solid-svg-icons'
+import { CaretRightOutlined, EnvironmentOutlined } from '@ant-design/icons';
+import { faLocationDot } from '@fortawesome/free-solid-svg-icons'
 import { AccordionHeader } from '../AccordionHeader';
 import { RoutingInfoPanel } from '../RoutingInfoPanel';
 import { ButtonCommon } from '../ButtonCommon';
@@ -59,7 +59,7 @@ export const BodyLayout = (props) => {
                         />
                     }
                 >
-                    <Panel style={{ fontSize: "18px", fontWeight: "700" }} header={<AccordionHeader label={STRING.TITLE_ROUTING} img={faLandmark} />} key="1">
+                    <Panel style={{ fontSize: "18px", fontWeight: "700" }} header={<AccordionHeader label={STRING.TITLE_ROUTING} img={faLocationDot} />} key="1">
 
                         <RoutingInfoPanel pane='ROUTING_TEST' mapRef={mapRef} />
 
