@@ -9,7 +9,6 @@ import { RoutingInfoPanel } from '../RoutingInfoPanel';
 import { ButtonCommon } from '../ButtonCommon';
 import { RoutingInfoBox } from '../RoutingInfoBox';
 import { Map } from "../Map/map";
-// import { Map } from "../Map/map1";
 import { useSelector, useDispatch } from "react-redux";
 import * as STRING from "../../strings";
 
