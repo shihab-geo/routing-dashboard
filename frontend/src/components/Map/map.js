@@ -35,6 +35,9 @@ export const Map = forwardRef((props, ref) => {
 
 
     const calculateRouteDistance = () => {
+
+        // removeAllLayers();
+
         if (markerFromRef.current && markerToRef.current) {
             const coordinates = [
                 markerFromRef.current.getLngLat(),
@@ -82,15 +85,44 @@ export const Map = forwardRef((props, ref) => {
 
                     const routeCoordinates = data.routes[0].geometry.coordinates;
 
+
                     // Update the route on the map
-                    map.current.getSource('route').setData({
-                        type: 'Feature',
-                        properties: {},
-                        geometry: {
-                            type: 'LineString',
-                            coordinates: routeCoordinates
-                        }
-                    });
+                    // map.current.getSource('route').setData({
+                    //     type: 'Feature',
+                    //     properties: {},
+                    //     geometry: {
+                    //         type: 'LineString',
+                    //         coordinates: routeCoordinates
+                    //     }
+                    // });
+
+                    const mapLayer = map.current.getLayer('route');
+                    if (mapLayer) {
+                        map.current.removeLayer('route').removeSource('route');
+                        // removeAllLayers();
+
+                    }
+
+
+
+
+                    map.current.addSource("route", {
+                        type: "geojson",
+                        data: {
+                            type: 'Feature',
+                            properties: {},
+                            geometry: {
+                                type: 'LineString',
+                                coordinates: routeCoordinates
+                            }
+                        },
+                    })
+
+                    dispatch(setMapLayers({ layers: ["route"] }));
+                    dispatch(setMapSources({ sources: ["route"] }));
+
+                    // Add a symbol layer
+                    map.current.addLayer(routingLayer('route', 'route'));
 
 
 
@@ -138,23 +170,23 @@ export const Map = forwardRef((props, ref) => {
                 map.current.resize();
 
                 // Create a GeoJSON source for the route
-                map.current.addSource('route', {
-                    type: 'geojson',
-                    data: {
-                        type: 'Feature',
-                        properties: {},
-                        geometry: {
-                            type: 'LineString',
-                            coordinates: []
-                        }
-                    }
-                });
+                // map.current.addSource('route', {
+                //     type: 'geojson',
+                //     data: {
+                //         type: 'Feature',
+                //         properties: {},
+                //         geometry: {
+                //             type: 'LineString',
+                //             coordinates: []
+                //         }
+                //     }
+                // });
 
-                dispatch(setMapLayers({ layers: ["route"] }));
-                dispatch(setMapSources({ sources: ["route"] }));
+                // dispatch(setMapLayers({ layers: ["route"] }));
+                // dispatch(setMapSources({ sources: ["route"] }));
 
-                // Add a symbol layer
-                map.current.addLayer(routingLayer('route', 'route'));
+                // // Add a symbol layer
+                // map.current.addLayer(routingLayer('route', 'route'));
 
                 // Create a layer to display the route
                 // map.current.addLayer({
