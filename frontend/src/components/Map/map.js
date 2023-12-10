@@ -137,7 +137,7 @@ export const Map = forwardRef((props, ref) => {
                 dispatch(setMapSources({ sources: ["route"] }));
 
                  // Add a symbol layer
-             map.current.addLayer(routingLayer('route','route'));
+             map.current.addLayer(routingLayer("route","route"));
 
                 // Create a layer to display the route
                 // map.current.addLayer({
