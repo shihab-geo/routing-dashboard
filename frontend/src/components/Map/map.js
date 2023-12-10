@@ -188,7 +188,7 @@ export const Map = forwardRef((props, ref) => {
                 map.current.remove();
             }
         };
-    }, []);
+    });
 
 
     //Call When Marker Position is Updated
