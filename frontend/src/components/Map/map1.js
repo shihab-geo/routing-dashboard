@@ -31,10 +31,6 @@ export const Map = forwardRef((props, ref) => {
 
     const { mapLayers, mapSources } = useSelector((state) => state.mapreducer);
 
-
-
-
-
     const handleMapClick = (e) => {
         if (!markerFrom.current) {
             markerFrom.current = new mapboxgl.Marker({ draggable: true, color: "green" }).setLngLat(e.lngLat).addTo(map.current);
