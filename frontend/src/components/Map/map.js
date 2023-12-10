@@ -133,20 +133,26 @@ export const Map = forwardRef((props, ref) => {
                     }
                 });
 
+                dispatch(setMapLayers({ layers: ["route"] }));
+                dispatch(setMapSources({ sources: ["route"] }));
+
+                 // Add a symbol layer
+             map.current.addLayer(routingLayer('route','route'));
+
                 // Create a layer to display the route
-                map.current.addLayer({
-                    id: 'route',
-                    type: 'line',
-                    source: 'route',
-                    layout: {
-                        'line-join': 'round',
-                        'line-cap': 'round'
-                    },
-                    paint: {
-                        'line-color': 'rgba(8,81,156,0.5)',
-                        'line-width': 8
-                    }
-                });
+                // map.current.addLayer({
+                //     id: 'route',
+                //     type: 'line',
+                //     source: 'route',
+                //     layout: {
+                //         'line-join': 'round',
+                //         'line-cap': 'round'
+                //     },
+                //     paint: {
+                //         'line-color': 'rgba(8,81,156,0.5)',
+                //         'line-width': 8
+                //     }
+                // });
             });
         }
 
