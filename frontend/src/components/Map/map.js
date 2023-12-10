@@ -38,12 +38,12 @@ export const Map = forwardRef((props, ref) => {
         const hours = Math.floor(totalSeconds / 3600);
         const minutes = Math.floor((totalSeconds % 3600) / 60);
         const seconds = totalSeconds % 60;
-      
+
         const formattedTime = `${String(hours).padStart(2, '0')}:${String(minutes).padStart(2, '0')}:${String(seconds).padStart(2, '0')}`;
         return formattedTime;
-      }
+    }
 
-      
+
     //Calculate the Routing Distance
     const calculateRouteDistance = () => {
 
@@ -76,20 +76,10 @@ export const Map = forwardRef((props, ref) => {
                     const distance = data.routes[0].distance / 1000;
                     const duration = data.routes[0].duration;
 
-                    const totalSeconds = duration;
-
-                    console.log(totalSeconds);
-
-                    const hours = Math.floor(totalSeconds / 3600);
-                    const minutes = Math.floor((totalSeconds % 3600) / 60);
-                    const seconds = Math.floor(totalSeconds % 60);
-
-
-                    const formatedTime = `${hours}:${minutes}:${seconds}`;
 
 
                     //Dispatch the Duration
-                    dispatch(setDuration({ data: formatedTime }));
+                    dispatch(setDuration({ data: formatTime(duration) }));
 
                     //Dispatch the Distance
                     dispatch(setDistance({ data: distance.toFixed(2) }));
