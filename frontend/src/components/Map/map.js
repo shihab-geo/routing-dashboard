@@ -102,6 +102,23 @@ export const Map = forwardRef((props, ref) => {
         }
     };
 
+    const handleMapClick = (e) => {
+        if (!markerFromRef.current) {
+            markerFromRef.current = new mapboxgl.Marker({ draggable: true, color: 'green' })
+                .setLngLat(e.lngLat)
+                .addTo(map.current);
+        } else if (!markerToRef.current) {
+            markerToRef.current = new mapboxgl.Marker({ draggable: true, color: 'red' })
+                .setLngLat(e.lngLat)
+                .addTo(map.current);
+        } else {
+            markerToRef.current.setLngLat(e.lngLat);
+        }
+
+        calculateRouteDistance();
+    };
+
+
 
 
 
@@ -156,22 +173,7 @@ export const Map = forwardRef((props, ref) => {
             });
         }
 
-        const handleMapClick = (e) => {
-            if (!markerFromRef.current) {
-                markerFromRef.current = new mapboxgl.Marker({ draggable: true, color: 'green' })
-                    .setLngLat(e.lngLat)
-                    .addTo(map.current);
-            } else if (!markerToRef.current) {
-                markerToRef.current = new mapboxgl.Marker({ draggable: true, color: 'red' })
-                    .setLngLat(e.lngLat)
-                    .addTo(map.current);
-            } else {
-                markerToRef.current.setLngLat(e.lngLat);
-            }
-
-            calculateRouteDistance();
-        };
-
+      
         map.current.on('click', handleMapClick);
 
         return () => {
