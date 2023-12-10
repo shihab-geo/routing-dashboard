@@ -137,7 +137,7 @@ export const Map = forwardRef((props, ref) => {
                 dispatch(setMapSources({ sources: ["route"] }));
 
                 // Add a symbol layer
-                map.current.addLayer(routingLayer("route", "route"));
+                map.current.addLayer(routingLayer('route', 'route'));
 
                 // Create a layer to display the route
                 // map.current.addLayer({
@@ -153,16 +153,6 @@ export const Map = forwardRef((props, ref) => {
                 //         'line-width': 8
                 //     }
                 // });
-            });
-
-            map.current.addControl(new mapboxgl.NavigationControl(), "top-right");
-            const scaleControl = new mapboxgl.ScaleControl({
-                maxWidth: 160,
-                unit: "metric",
-            });
-            map.current.addControl(scaleControl, "bottom-right");
-            map.current.on("contextmenu", (e) => {
-                // onContextMenu(e);
             });
         }
 
