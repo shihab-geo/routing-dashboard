@@ -33,6 +33,7 @@ export const Map = forwardRef((props, ref) => {
 
     const { mapLayers, mapSources } = useSelector((state) => state.mapreducer);
 
+    //Calculate the Routing Distance
     const calculateRouteDistance = () => {
 
         // removeAllLayers();
@@ -137,8 +138,10 @@ export const Map = forwardRef((props, ref) => {
         }
     };
 
+
+    //Handle Map Click
     const handleMapClick = (e) => {
-        console.log(e);
+
         if (!markerFromRef.current) {
             markerFromRef.current = new mapboxgl.Marker({ draggable: true, color: 'green' })
                 .setLngLat(e.lngLat)
