@@ -44,6 +44,15 @@ export const Map = forwardRef((props, ref) => {
             const fromLngLat = `${coordinates[0].lng},${coordinates[0].lat}`;
             const toLngLat = `${coordinates[1].lng},${coordinates[1].lat}`;
 
+            const fromLntLatConvert = `${coordinates[0].lng.toFixed(6)},${coordinates[0].lat.toFixed(6)}`;
+            const toLntLatConvert = `${coordinates[1].lng.toFixed(6)},${coordinates[1].lat.toFixed(6)}`;
+
+            //Dispatch the Route From
+            dispatch(setRouteFrom({ data: fromLntLatConvert }));
+
+            //Dispatch the Route To
+            dispatch(setRouteTo({ data: toLntLatConvert }));
+
             const url = `http://10.75.8.26:5000/route/v1/driving/${fromLngLat};${toLngLat}?steps=true&overview=full&annotations=false&geometries=geojson`;
 
             fetch(url)
