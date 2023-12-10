@@ -28,6 +28,10 @@ export const selectSlice = createSlice({
     initialState,
     reducers: {
 
+        setActivePanel: (state, action) => {
+            state.panelInfo.activePanel = action.payload.data;
+        },
+
         setEngine: (state, action) => {
             state.routingInfo.engine = action.payload.data;
         },
@@ -57,6 +61,7 @@ export const selectSlice = createSlice({
 })
 
 export const {
+    setActivePanel,
     setEngine,
     setProfile,
     setDistance,
