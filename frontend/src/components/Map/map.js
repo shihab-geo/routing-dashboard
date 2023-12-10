@@ -9,10 +9,10 @@ import {
     setMapLayers, setMapSources,
     resetMapLayers, resetMapSources,
 } from "../../redux/slices/mapSlice";
-// import {
-//     setDistance, setDuration,
-//     setRouteFrom, setRouteTo,
-// } from "../../redux/slices/selectSlice";
+import {
+    setDistance, setDuration,
+    setRouteFrom, setRouteTo,
+} from "../../redux/slices/selectSlice";
 import moment from 'moment';
 
 
@@ -25,7 +25,7 @@ export const Map = forwardRef((props, ref) => {
     const map = useRef(null);
     const markerFromRef = useRef(null);
     const markerToRef = useRef(null);
-    const [distance, setDistance] = useState(null);
+    const [calculateDistance, setCalculateDistance] = useState(null);
 
 
     const dispatch = useDispatch();
@@ -49,8 +49,27 @@ export const Map = forwardRef((props, ref) => {
             fetch(url)
                 .then(response => response.json())
                 .then(data => {
+
                     const distance = data.routes[0].distance / 1000;
-                    setDistance(distance.toFixed(2));
+                    const duration = data.routes[0].duration;
+
+                    const totalSeconds = duration;
+
+                    const hours = Math.floor(totalSeconds / 3600);
+                    const minutes = Math.floor((totalSeconds % 3600) / 60);
+                    const seconds = Math.floor(totalSeconds % 60);
+
+
+                    const formatedTime = `${hours}:${minutes}:${seconds}`;
+
+
+                    //Dispatch the Duration
+                    dispatch(setDuration({ data: formatedTime }));
+
+                    //Dispatch the Distance
+                    dispatch(setDistance({ data: distance.toFixed(2) }));
+
+                    setCalculateDistance(distance.toFixed(2));
 
                     const routeCoordinates = data.routes[0].geometry.coordinates;
 
@@ -63,6 +82,10 @@ export const Map = forwardRef((props, ref) => {
                             coordinates: routeCoordinates
                         }
                     });
+
+
+
+
                 })
                 .catch(error => {
                     console.error('Error calculating route distance:', error);
