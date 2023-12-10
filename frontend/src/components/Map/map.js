@@ -159,8 +159,6 @@ export const Map = forwardRef((props, ref) => {
 
 
 
-
-
     //Call the Base Map
     useEffect(() => {
         if (!map.current) {
