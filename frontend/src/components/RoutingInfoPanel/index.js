@@ -3,6 +3,7 @@ import { Input, Form, Col, Radio, Divider, Row, Space } from 'antd';
 import { useSelector, useDispatch } from "react-redux";
 import * as STRING_VARS from "../../strings";
 import {
+  setActivePanel,
   setEngine,
   setProfile,
 } from "../../redux/slices/selectSlice";
@@ -45,6 +46,13 @@ export const RoutingInfoPanel = (props) => {
     dispatch(setProfile({ data: e.target.value }));
 
   };
+
+  //Update the Active Panel
+  useEffect(() => {
+    //Dispatch the Active Panel
+    dispatch(setActivePanel({ data: STRING_VARS.ACTIVE_PANEL_ROUTING }));
+  }, [])
+
 
   //Update the form input values
   useEffect(() => {
