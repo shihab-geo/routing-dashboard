@@ -21,6 +21,8 @@ export const RoutingInfoPanel = (props) => {
   const [engineState, setEngineState] = useState(STRING_VARS.ENGINE_OSRM);
   const [profileState, setProfileState] = useState(STRING_VARS.PROFILE_CAR);
 
+  const getActivePanel = useSelector((state) => state.select.panelInfo.activePanel);
+
   const routeFromHere = useSelector((state) => state.select.routingInfo.routeFrom);
   const routeToHere = useSelector((state) => state.select.routingInfo.routeTo);
 
@@ -61,9 +63,14 @@ export const RoutingInfoPanel = (props) => {
 
 
   //? Plot the Routing Map
-  useEffect(() => {
-    // mapRef.current.distanceMarker();
-  }, [])
+  // useEffect(() => {
+
+  //   if (getActivePanel === STRING_VARS.ACTIVE_PANEL_ROUTING) {
+  //           mapRef.current.distanceMarker();
+
+  //   }
+
+  // }, [getActivePanel])
 
 
 
