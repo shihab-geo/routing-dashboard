@@ -60,6 +60,13 @@ export const RoutingInfoPanel = (props) => {
   }, [routeFromHere, routeToHere]);
 
 
+  //? Plot the Routing Map
+  useEffect(() => {
+    mapRef.current.distanceMarker();
+  }, [])
+
+
+
   return (
 
     <>
