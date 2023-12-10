@@ -234,6 +234,7 @@ export const Map = forwardRef((props, ref) => {
         dispatch(resetMapSources());
     };
 
+
     const distanceMarker = () => {
         console.log(map.current);
 
