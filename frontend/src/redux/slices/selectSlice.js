@@ -2,6 +2,10 @@ import { createSlice } from '@reduxjs/toolkit';
 import * as STRING_VARS from "../../strings";
 
 
+const panelInfo = {
+    activePanel: STRING_VARS.ACTIVE_PANEL_ROUTING,
+
+};
 
 const routingInfo = {
     engine: STRING_VARS.ENGINE_OSRM,
@@ -14,7 +18,8 @@ const routingInfo = {
 
 
 const initialState = {
-    routingInfo
+    panelInfo,
+    routingInfo,
 
 }
 
