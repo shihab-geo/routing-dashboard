@@ -1,0 +1,14 @@
+.merchant-common-button.ant-btn-primary {
+    /* background: #3f72b4 !important; */
+    background: linear-gradient(#854fd1, #851e3e) !important;
+    border-color: #fff;
+    border-width: 0;
+}
+
+.merchant-common-button.ant-btn-primary:hover {
+    background: linear-gradient(#851e3e, #854fd1) !important;
+}
+
+.merchant-common-button.ant-btn:active {
+    background: linear-gradient(#854fd1, #851e3e) !important;
+}

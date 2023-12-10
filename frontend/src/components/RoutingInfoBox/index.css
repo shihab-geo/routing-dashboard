@@ -1,0 +1,29 @@
+.merchant-card {
+    position: absolute;
+    left: 40%;
+    bottom: 1%;
+    white-space: nowrap;
+    width: 400px;
+    /* opacity: 0.9;  */
+}
+
+.merchant-card .ant-card-head-title {
+    color: #851e3e;
+    text-align: center;
+    font-weight: bold;
+}
+
+.merchant-card .ant-card-body span {
+    color: #851e3e;
+}
+
+.merchant-card span.ant-divider-inner-text {
+    color: black;
+    font-weight: 600;
+    font-size: 14px;
+}
+
+.merchant-card .ant-checkbox .ant-checkbox-inner {
+    border-color: var(--border-color);
+    border-width: 2px;
+}

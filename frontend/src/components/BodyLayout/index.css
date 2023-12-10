@@ -1,0 +1,7 @@
+/* Apply custom styles to the Collapse component for small screens */
+@media (max-width: 1366px) {
+    .custom-collapse {
+      max-height: 500px !important; /* Set a fixed height for the Collapse component */
+      overflow-y: scroll !important; /* Enable vertical scrolling */
+    }
+  }
