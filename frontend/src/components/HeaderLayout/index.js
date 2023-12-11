@@ -34,7 +34,7 @@ export const HeaderLayout = (props) => {
 
 
                 <Tooltip title="Logout">
-                    <Button shape="circle" icon={<LogoutOutlined />}/>
+                    <Button shape="circle" icon={<LogoutOutlined />} />
                 </Tooltip>
             </Space>
         </div>
