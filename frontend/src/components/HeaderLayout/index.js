@@ -70,7 +70,7 @@ export const HeaderLayout = (props) => {
                 >
                     <div>
                         {/* <img src={logo} alt="logo" height={40} /> */}
-                        <h2>Routing Benchmarker</h2>
+                        <h2 style={{ fontFamily: "roboto", fontWeight: "bold", color: "#851e3e" }}>Routing Benchmarker</h2>
                     </div>
                 </Sider>
 
