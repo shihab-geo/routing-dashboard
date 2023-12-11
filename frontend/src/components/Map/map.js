@@ -27,6 +27,8 @@ export const Map = forwardRef((props, ref) => {
     const markerToRef = useRef(null);
     const [calculateDistance, setCalculateDistance] = useState(null);
 
+    const OSRM_ROUTING_URL = process.env.REACT_APP_OSRM_ROUTING_URL;
+
 
     const dispatch = useDispatch();
 
@@ -69,7 +71,7 @@ export const Map = forwardRef((props, ref) => {
             //Dispatch the Route To
             dispatch(setRouteTo({ data: toLntLatConvert }));
 
-            const url = `http://10.75.8.26:5000/route/v1/driving/${fromLngLat};${toLngLat}?steps=true&overview=full&annotations=false&geometries=geojson`;
+            const url = `${OSRM_ROUTING_URL}/route/v1/driving/${fromLngLat};${toLngLat}?steps=true&overview=full&annotations=false&geometries=geojson`;
 
             fetch(url)
                 .then(response => response.json())
