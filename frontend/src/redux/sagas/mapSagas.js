@@ -22,8 +22,10 @@ function* trackAgentsWorker({ payload }) {
         const agentData = pointGeoJsonFromGeom(response.data.data.data)
         // console.log(trackingData);
         console.log(agentData);
+        console.log(agentData?.features[0]?.properties?.distributor);
         if (response.status === 200) {
-            yield put(setAgentPoints(agentData))
+            yield put(setAgentPoints(agentData));
+            yield put(setDistributor({data: agentData?.features[0]?.properties?.distributor}));
         } else {
             // console.log(response.status);
         }
