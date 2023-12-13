@@ -23,7 +23,8 @@ export const mapSlice = createSlice({
         },
 
         setAgentPoints: (state, action) => {
-            state.agentPoints = action.payload.data;
+            console.log(action.payload);
+            state.agentPoints = action.payload;
         },
 
         setMapLayers: (state, action) => {
