@@ -3,18 +3,27 @@ import { createSlice } from "@reduxjs/toolkit";
 const initialState = {
 
     showRoutingInfo: false,
+    agentPoints: [],
     mapLayers: [],
     mapSources: [],
 
 }
 
 export const mapSlice = createSlice({
-    name: 'merchantMapSlice',
+    name: 'routingBenchmarkerMapSlice',
     initialState,
     reducers: {
 
         setShowRoutingInfo: (state, action) => {
             state.showRoutingInfo = action.payload.data;
+        },
+
+        getAgentPoints: (type) => {
+            return type;
+        },
+
+        setAgentPoints: (state, action) => {
+            state.agentPoints = action.payload.data;
         },
 
         setMapLayers: (state, action) => {
@@ -39,6 +48,8 @@ export const mapSlice = createSlice({
 
 export const {
     setShowRoutingInfo,
+    getAgentPoints,
+    setAgentPoints,
     setMapLayers,
     setMapSources,
     resetMapLayers,

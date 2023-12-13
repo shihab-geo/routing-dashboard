@@ -1,7 +1,8 @@
 import { takeLatest, call, put, fork } from 'redux-saga/effects';
 import {
     fetchData
-} from '../../services/api.service'
+} from '../../services/api.service';
+import {} from "../slices/mapSlice";
 
 
 function* trackAgentsWorker({ payload }) {
