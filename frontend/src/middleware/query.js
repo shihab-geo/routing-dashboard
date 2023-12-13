@@ -1,3 +1,5 @@
+export const GRAPHQL_API_ENDPOINT = `${process.env.REACT_APP_GRAPHQL_API_ENDPOINT}/v1/graphql`
+
 export const GET_AGENT_LOCATION = `
 query GetAgentLocation($dso: String) {
 	data: agent_position(
