@@ -16,10 +16,16 @@ const routingInfo = {
     routeTo: null,
 }
 
+const tripTest = {
+    distributor: null,
+
+}
+
 
 const initialState = {
     panelInfo,
     routingInfo,
+    tripTest,
 
 }
 
@@ -56,6 +62,10 @@ export const selectSlice = createSlice({
             state.routingInfo.routeTo = action.payload.data;
         },
 
+        setDistributor: (state, action) => {
+            state.tripTest.distributor = action.payload.data;
+        },
+
     },
 
 })
@@ -68,6 +78,7 @@ export const {
     setDuration,
     setRouteFrom,
     setRouteTo,
+    setDistributor,
 
 } = selectSlice.actions
 
