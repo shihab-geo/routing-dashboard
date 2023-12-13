@@ -24,8 +24,8 @@ function* trackAgentsWorker({ payload }) {
         console.log(agentData);
         console.log(agentData?.features[0]?.properties?.distributor);
         if (response.status === 200) {
-            yield put(setAgentPoints(agentData));
-            yield put(setDistributor({data: agentData?.features[0]?.properties?.distributor}));
+            yield put(setAgentPoints({ data: agentData }));
+            yield put(setDistributor({ data: agentData?.features[0]?.properties?.distributor }));
         } else {
             // console.log(response.status);
         }
