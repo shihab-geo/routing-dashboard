@@ -5,7 +5,7 @@ import mapReducer from './slices/mapSlice';
 
 
 
-// import rootSaga from "./sagas/rootSaga";
+import rootSaga from "./sagas/rootSagas";
 
 
 const DEVTOOL_STATUS = `${process.env.REACT_APP_DEVTOOL_STATUS}`;
@@ -22,6 +22,6 @@ const store = configureStore({
 })
 
 
-// sagaMiddleware.run(rootSaga)
+sagaMiddleware.run(rootSaga)
 
 export default store;

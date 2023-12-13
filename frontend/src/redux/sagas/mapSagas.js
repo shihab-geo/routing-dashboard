@@ -32,6 +32,7 @@ function* trackAgentsWorker({ payload }) {
 
 
 function* getAgentLocPoints() {
+    console.log('here');
     yield takeLatest(getAgentPoints.type, trackAgentsWorker);
 }
 
