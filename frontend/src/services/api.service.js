@@ -12,6 +12,7 @@ let callGqlAPI = async (url, query, variables) => {
     headers: {
       'Content-Type': 'application/json',
       // 'Authorization': 'Bearer ' + TokenService.getAccessToken(),
+      'x-hasura-admin-secret': 'myadminsecretkey',
     },
   }
   );
@@ -20,7 +21,7 @@ let callGqlAPI = async (url, query, variables) => {
 
 export const fetchData = async (url, query, variables) =>
   callGqlAPI(url, query, variables);
-  
+
 
 
 export const routingData = async (url) => {
