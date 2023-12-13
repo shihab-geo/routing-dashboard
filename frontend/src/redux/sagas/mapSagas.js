@@ -2,7 +2,9 @@ import { takeLatest, call, put, fork } from 'redux-saga/effects';
 import {
     fetchData
 } from '../../services/api.service';
-import {} from "../slices/mapSlice";
+import {
+    getAgentPoints, setAgentPoints,
+} from "../slices/mapSlice";
 
 
 function* trackAgentsWorker({ payload }) {
