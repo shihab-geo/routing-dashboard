@@ -1,5 +1,5 @@
 import { AudioOutlined } from '@ant-design/icons';
-import React from 'react';
+import {React, useEffect} from 'react';
 import { Input, Space } from 'antd';
 import * as API_PARAMS from '../../middleware/query';
 import { useDispatch, useSelector } from "react-redux";
@@ -51,6 +51,25 @@ export const TripTestPanel = (props) => {
     }))
 
   }
+
+  //Fetch the distributor house location
+  useEffect(() => {
+
+    if (getDistributorName) {
+
+      //Dispatch Dist House location Data
+    // dispatch(getAgentPoints({
+    //   url: gqlUrl,
+    //   query: API_PARAMS.GET_DIST_HOUSE_LOCATION,
+    //   variables: {
+    //     "dso": dso,
+    //   }
+    // }))
+      
+    }
+    
+  }, [getDistributorName])
+  
 
 
 

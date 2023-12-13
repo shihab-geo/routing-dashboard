@@ -3,7 +3,8 @@ import { createSlice } from "@reduxjs/toolkit";
 const initialState = {
 
     showRoutingInfo: false,
-    agentPoints: [],
+    agentPointsLoc: [],
+    distHouseLoc: [],
     mapLayers: [],
     mapSources: [],
 
@@ -23,7 +24,15 @@ export const mapSlice = createSlice({
         },
 
         setAgentPoints: (state, action) => {
-            state.agentPoints = action.payload.data;
+            state.agentPointsLoc = action.payload.data;
+        },
+
+        getDistHouseLoc: (type) => {
+            return type;
+        },
+
+        setDistHouseLoc: (state, action) => {
+            state.distHouseLoc = action.payload.data;
         },
 
         setMapLayers: (state, action) => {
@@ -50,6 +59,8 @@ export const {
     setShowRoutingInfo,
     getAgentPoints,
     setAgentPoints,
+    getDistHouseLoc,
+    setDistHouseLoc,
     setMapLayers,
     setMapSources,
     resetMapLayers,
