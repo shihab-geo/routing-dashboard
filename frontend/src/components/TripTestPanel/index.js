@@ -31,6 +31,10 @@ export const TripTestPanel = (props) => {
   const dispatch = useDispatch();
   const gqlUrl = API_PARAMS.GRAPHQL_API_ENDPOINT;
 
+  const getAgentPointsData = useSelector((state) => state.mapreducer.agentPoints);
+  const getDistributorName = useSelector((state) => state.select.tripTest.distributor);
+
+
 
 
   const onSearch = (dso) => {
