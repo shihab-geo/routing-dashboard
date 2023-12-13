@@ -1,6 +1,6 @@
-export const GET_DSO_BEST_ROUTE = `
-query GetDSOBestRoute($distributor: String, $dso: String) {
-	agentLoc: agent_position(
+export const GET_AGENT_LOCATION = `
+query GetAgentLocation($dso: String) {
+	data: agent_position(
 		where: { dso: { _eq: $dso }, latitude: { _is_null: false, _neq: "0" } }
 		order_by: { agents: desc }
 	) {
@@ -17,13 +17,20 @@ query GetDSOBestRoute($distributor: String, $dso: String) {
 		image_path
 		geometry: geom
 	}
-	distributorLoc: distributor_loc(
-		where: { distributor: { _ilike: $distributor } }
-	) {
-		distributor
-		area
-		region
-		geom
-	}
+
 }
+`;
+
+
+export const GET_DIST_HOUSE_LOCATION = `
+query GetBestRoute($distributor: String) {
+    data: distributor_loc(
+            where: { distributor: { _ilike: $distributor } }
+        ) {
+            distributor
+            area
+            region
+            geom
+        }
+    }
 `;
