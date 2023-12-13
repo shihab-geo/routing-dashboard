@@ -1,7 +1,8 @@
 export const ACTIVE_PANEL_ROUTING = "PANEL_ROUTING";
 
 
-export const TITLE_ROUTING = "Routing Info";
+export const TITLE_ROUTING = "Routing Test";
+export const TITLE_TRIP = "Trip Test";
 export const TITLE_ENGINE = "Engine";
 export const TITLE_PROFILE = "Profile";
 

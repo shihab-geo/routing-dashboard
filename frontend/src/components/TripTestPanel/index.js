@@ -1,6 +1,6 @@
 import React from 'react'
 
-export const RouteTestPanel = () => {
+export const TripTestPanel = () => {
   return (
     <div>index</div>
   )

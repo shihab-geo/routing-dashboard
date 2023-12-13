@@ -6,6 +6,7 @@ import { CaretRightOutlined, EnvironmentOutlined } from '@ant-design/icons';
 import { faLocationDot } from '@fortawesome/free-solid-svg-icons'
 import { AccordionHeader } from '../AccordionHeader';
 import { RoutingInfoPanel } from '../RoutingInfoPanel';
+import { TripTestPanel } from '../TripTestPanel';
 import { ButtonCommon } from '../ButtonCommon';
 import { RoutingInfoBox } from '../RoutingInfoBox';
 import { Map } from "../Map/map";
@@ -61,6 +62,12 @@ export const BodyLayout = (props) => {
                     <Panel style={{ fontSize: "18px", fontWeight: "700" }} header={<AccordionHeader label={STRING.TITLE_ROUTING} img={faLocationDot} />} key="1">
 
                         <RoutingInfoPanel pane='ROUTING_TEST' mapRef={mapRef} />
+
+                    </Panel>
+
+                    <Panel style={{ fontSize: "18px", fontWeight: "700" }} header={<AccordionHeader label={STRING.TITLE_TRIP} img={faLocationDot} />} key="2">
+
+                        <TripTestPanel pane='TRIP_TEST' mapRef={mapRef} />
 
                     </Panel>
 
