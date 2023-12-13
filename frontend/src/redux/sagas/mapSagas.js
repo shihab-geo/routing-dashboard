@@ -11,12 +11,15 @@ import {
 import {
     getAgentPoints, setAgentPoints,
 } from "../slices/mapSlice";
+import {
+    setDistributor,
+} from "../slices/selectSlice";
 
 
 function* trackAgentsWorker({ payload }) {
     try {
         const response = yield call(fetchData, payload.url, payload.query, payload.variables)
-        let agentData = pointGeoJsonFromGeom(response.data.data.data)
+        const agentData = pointGeoJsonFromGeom(response.data.data.data)
         // console.log(trackingData);
         console.log(agentData);
         if (response.status === 200) {
