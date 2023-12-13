@@ -3,7 +3,7 @@ import React from 'react';
 import { Input, Space } from 'antd';
 import * as API_PARAMS from '../../middleware/query';
 import { useDispatch, useSelector } from "react-redux";
-import {getAgentPoints} from "../../redux/slices/mapSlice";
+import { getAgentPoints } from "../../redux/slices/mapSlice";
 
 
 
@@ -35,14 +35,16 @@ export const TripTestPanel = (props) => {
 
   const onSearch = (dso) => {
     console.log(dso);
-  
+
     //Dispatch Agent Points of the input DSO
     dispatch(getAgentPoints({
       url: gqlUrl,
       query: API_PARAMS.GET_AGENT_LOCATION,
-      variables: dso
-  }))
-  
+      variables: {
+        "dso": dso,
+      }
+    }))
+
   }
 
 
