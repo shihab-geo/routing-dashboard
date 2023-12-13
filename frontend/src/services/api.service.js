@@ -1,5 +1,8 @@
 import axios from "axios";
 
+const privateAxios = axios.create();
+
+
 let callGqlAPI = async (url, query, variables) => {
 
   return await privateAxios.post(url, {
