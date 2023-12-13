@@ -22,7 +22,7 @@ export const TripTestPanel = () => {
         placeholder="Input DSO Number"
         onSearch={onSearch}
         style={{
-          width: 'auto',
+          maxWidth: 'auto',
         }}
       />
     </Space>
