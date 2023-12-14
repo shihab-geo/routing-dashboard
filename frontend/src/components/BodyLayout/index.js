@@ -13,7 +13,10 @@ import { Map } from "../Map/map";
 import { useSelector, useDispatch } from "react-redux";
 import * as STRING from "../../strings";
 import {
-    setRoutingDistance, setRoutingDuration, setActivePanel
+    setRoutingDistance, setRoutingDuration,
+    setTrippingDistance, setTripingDuration,
+    setActivePanel,
+
 } from "../../redux/slices/selectSlice";
 
 
@@ -42,6 +45,10 @@ export const BodyLayout = (props) => {
         //Clear the routing info
         dispatch(setRoutingDistance({ data: null }));
         dispatch(setRoutingDuration({ data: null }));
+
+        //Clear the tripping info
+        dispatch(setTrippingDistance({ data: null }));
+        dispatch(setTripingDuration({ data: null }));
 
     }
 
