@@ -3,7 +3,9 @@ import {React, useEffect} from 'react';
 import { Input, Space } from 'antd';
 import * as API_PARAMS from '../../middleware/query';
 import { useDispatch, useSelector } from "react-redux";
-import { getAgentPoints } from "../../redux/slices/mapSlice";
+import { 
+  getAgentPoints,getDistHouseLoc 
+} from "../../redux/slices/mapSlice";
 
 
 
