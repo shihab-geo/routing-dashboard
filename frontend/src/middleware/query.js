@@ -1,5 +1,5 @@
 export const GRAPHQL_API_ENDPOINT = `${process.env.REACT_APP_GRAPHQL_API_ENDPOINT}/v1/graphql`;
-export const OSRM_API_ENDPOINT = `${process.env.REACT_APP_OSRM_API_ENDPOINT}/`;
+export const OSRM_API_ENDPOINT = `${process.env.REACT_APP_OSRM_ROUTING_URL}/`;
 
 export const GET_AGENT_LOCATION = `
 query GetAgentLocation($dso: String) {
