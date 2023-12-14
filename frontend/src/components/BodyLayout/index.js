@@ -1,8 +1,7 @@
-import React, { useEffect, useState } from 'react';
+import { React } from 'react';
 // import "./index.css";
-import { UserOutlined } from '@ant-design/icons';
-import { Breadcrumb, Layout, Menu, theme, Collapse } from 'antd';
-import { CaretRightOutlined, EnvironmentOutlined } from '@ant-design/icons';
+import { Layout, Collapse } from 'antd';
+import { CaretRightOutlined } from '@ant-design/icons';
 import { faRoute, faPlane } from '@fortawesome/free-solid-svg-icons'
 import { AccordionHeader } from '../AccordionHeader';
 import { RoutingInfoPanel } from '../RoutingInfoPanel';
@@ -10,7 +9,7 @@ import { TripInfoPanel } from '../TripInfoPanel';
 import { ButtonCommon } from '../ButtonCommon';
 import { PopUpInfoBox } from '../PopUpInfoBox';
 import { Map } from "../Map/map";
-import { useSelector, useDispatch } from "react-redux";
+import { useDispatch } from "react-redux";
 import * as STRING from "../../strings";
 import {
     setRoutingDistance, setRoutingDuration,
@@ -26,17 +25,8 @@ const { Panel } = Collapse;
 export const BodyLayout = (props) => {
 
     const mapRef = props.mapRef;
-    const [menu, setmenu] = useState(null);
     const dispatch = useDispatch();
 
-    const getPopUpInfoBoxStatus = useSelector((state) => state.mapreducer.showRoutingInfo);
-    const getActivePanel = useSelector((state) => state.select.panelInfo.activePanel);
-
-
-
-    const {
-        token: { colorBgContainer },
-    } = theme.useToken();
 
     const buttonClick = (value) => {
         if (mapRef.current === undefined) return;
@@ -100,7 +90,7 @@ export const BodyLayout = (props) => {
 
                 </Collapse>
 
-                <Footer style={{ backgroundColor: 'white', position: 'fixed', bottom: 1, width: '340px', position: "absolute" }}>
+                <Footer style={{ backgroundColor: 'white', position: 'fixed', bottom: 1, width: '340px' }}>
                     <ButtonCommon style={{ marginBottom: '1px' }} name='Clear Layer' buttonClick={buttonClick} />
                 </Footer>
 
@@ -111,7 +101,6 @@ export const BodyLayout = (props) => {
 
                 <Map ref={mapRef} />
 
-                {/* {getPopUpInfoBoxStatus === true ? <PopUpInfoBox /> : null} */}
                 <PopUpInfoBox />
 
             </Layout>

@@ -1,7 +1,7 @@
 import React from 'react'
-import { Card, Space } from 'antd';
+import { Card } from 'antd';
 import "./index.css";
-import { useSelector, useDispatch } from "react-redux";
+import { useSelector } from "react-redux";
 import * as STRING from "../../strings";
 
 

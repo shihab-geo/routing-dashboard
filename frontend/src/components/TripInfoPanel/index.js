@@ -1,4 +1,3 @@
-import { AudioOutlined } from '@ant-design/icons';
 import { React, useEffect, useState } from 'react';
 import { Alert, Input, Space } from 'antd';
 import * as API_PARAMS from '../../middleware/query';
@@ -16,34 +15,17 @@ import * as polylineDecode from "@mapbox/polyline";
 
 
 
-
-
-
-
-const { Search } = Input;
-
-const suffix = (
-  <AudioOutlined
-    style={{
-      fontSize: 16,
-      color: '#1677ff',
-    }}
-  />
-);
-
-
-
-
-
 export const TripInfoPanel = (props) => {
 
   const mapRef = props.mapRef;
   const dispatch = useDispatch();
   const gqlUrl = API_PARAMS.GRAPHQL_API_ENDPOINT;
 
+  const { Search } = Input;
+
   const [showBestRoute, setShowBestRoute] = useState(false);
 
-  const getAgentPointsData = useSelector((state) => state.mapreducer.agentPoints);
+
   const getDistributorName = useSelector((state) => state.select.trippingInfo.distributor);
   const getDso = useSelector((state) => state.select.trippingInfo.dso);
 
