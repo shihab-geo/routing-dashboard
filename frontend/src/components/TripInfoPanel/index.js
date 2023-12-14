@@ -175,7 +175,7 @@ export const TripInfoPanel = (props) => {
         placeholder="Input DSO Number"
         onSearch={onSearch}
         style={{
-          maxWidth: 'auto',
+          width: '300px',
         }}
       />
     </Space>
