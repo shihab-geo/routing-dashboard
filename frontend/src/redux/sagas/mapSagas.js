@@ -56,7 +56,7 @@ function* getAgentLocPoints() {
 }
 
 function* getDistributorLocPoints() {
-    yield takeLatest(getAgentPoints.type, trackDistHouseLocWorker);
+    yield takeLatest(getDistHouseLoc.type, trackDistHouseLocWorker);
 }
 
 
