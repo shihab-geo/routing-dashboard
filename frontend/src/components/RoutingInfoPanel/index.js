@@ -1,9 +1,8 @@
 import { React, useState, useEffect } from 'react';
-import { Input, Form, Col, Radio, Divider, Row, Space } from 'antd';
+import { Input, Form, Col, Radio, Divider, Row } from 'antd';
 import { useSelector, useDispatch } from "react-redux";
 import * as STRING from "../../strings";
 import {
-  setActivePanel,
   setEngine,
   setProfile,
 } from "../../redux/slices/selectSlice";
@@ -13,8 +12,6 @@ import {
 
 export const RoutingInfoPanel = (props) => {
 
-  const mapRef = props.mapRef;
-  const panel = props.pane;
   const dispatch = useDispatch();
   const [form] = Form.useForm();
 
@@ -22,7 +19,6 @@ export const RoutingInfoPanel = (props) => {
   const [engineState, setEngineState] = useState(STRING.ENGINE_OSRM);
   const [profileState, setProfileState] = useState(STRING.PROFILE_CAR);
 
-  const getActivePanel = useSelector((state) => state.select.panelInfo.activePanel);
 
   const routeFromHere = useSelector((state) => state.select.routeInfo.routeFrom);
   const routeToHere = useSelector((state) => state.select.routeInfo.routeTo);
