@@ -46,7 +46,8 @@ export const BodyLayout = (props) => {
     }
 
     const onPanelChange = (key) => {
-        dispatch(setActivePanel({ data: key }));
+        //Dispatch the active Panel
+        dispatch(setActivePanel({ data: key[0] }));
     };
 
 
@@ -104,7 +105,7 @@ export const BodyLayout = (props) => {
                 <Map ref={mapRef} />
 
                 {/* {getPopUpInfoBoxStatus === true ? <PopUpInfoBox /> : null} */}
-                <PopUpInfoBox activePanel={getActivePanel}/>
+                <PopUpInfoBox />
 
             </Layout>
 
