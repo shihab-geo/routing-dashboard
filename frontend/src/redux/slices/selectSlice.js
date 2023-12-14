@@ -19,6 +19,8 @@ const routingInfo = {
 const tripTest = {
     distributor: null,
     dso: null,
+    duration: null,
+    distance: null,
 
 }
 
@@ -47,11 +49,11 @@ export const selectSlice = createSlice({
             state.routingInfo.profile = action.payload.data;
         },
 
-        setDistance: (state, action) => {
+        setRoutingDistance: (state, action) => {
             state.routingInfo.distance = action.payload.data;
         },
 
-        setDuration: (state, action) => {
+        setRoutingDuration: (state, action) => {
             state.routingInfo.duration = action.payload.data;
         },
 
@@ -79,8 +81,8 @@ export const {
     setActivePanel,
     setEngine,
     setProfile,
-    setDistance,
-    setDuration,
+    setRoutingDistance,
+    setRoutingDuration,
     setRouteFrom,
     setRouteTo,
     setDistributor,

@@ -10,7 +10,7 @@ import {
     resetMapLayers, resetMapSources,
 } from "../../redux/slices/mapSlice";
 import {
-    setDistance, setDuration,
+    setRoutingDistance, setRoutingDuration,
     setRouteFrom, setRouteTo,
 } from "../../redux/slices/selectSlice";
 import moment from 'moment';
@@ -88,10 +88,10 @@ export const Map = forwardRef((props, ref) => {
 
 
                 //Dispatch the Duration
-                dispatch(setDuration({ data: formatedTime }));
+                dispatch(setRoutingDuration({ data: formatedTime }));
 
                 //Dispatch the Distance
-                dispatch(setDistance({ data: distance.toFixed(2) }));
+                dispatch(setRoutingDistance({ data: distance.toFixed(2) }));
 
                 //layer
                 const mapLayer = map.current.getLayer('routing-line-layer');

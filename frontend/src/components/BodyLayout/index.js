@@ -13,7 +13,7 @@ import { Map } from "../Map/map";
 import { useSelector, useDispatch } from "react-redux";
 import * as STRING from "../../strings";
 import {
-    setDistance, setDuration,
+    setRoutingDistance, setRoutingDuration,
 } from "../../redux/slices/selectSlice";
 
 
@@ -38,8 +38,8 @@ export const BodyLayout = (props) => {
         mapRef.current.removeAllLayers();
 
         //Clear the routing info
-        dispatch(setDistance({ data: null }));
-        dispatch(setDuration({ data: null }));
+        dispatch(setRoutingDistance({ data: null }));
+        dispatch(setRoutingDuration({ data: null }));
 
     }
 
