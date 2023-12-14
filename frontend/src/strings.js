@@ -17,3 +17,7 @@ export const PROFILE_CAR = "Car";
 export const PROFILE_MOTORBIKE = "Motor Bike";
 export const PROFILE_CYCLE = "Cycle";
 export const PROFILE_FOOT = "Foot";
+
+
+export const INFORMATION_ROUTING = "Routing Information";
+export const INFORMATION_TRIPPING = "Tripping Information";
