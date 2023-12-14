@@ -9,8 +9,12 @@ import * as STRING from "../../strings";
 export const PopUpInfoBox = () => {
 
     const getActivePanel = useSelector((state) => state.select.panelInfo.activePanel);
+
     const getRoutingDuration = useSelector((state) => state.select.routingInfo.duration);
     const getRoutingDistance = useSelector((state) => state.select.routingInfo.distance);
+
+    const getTrippingDuration = useSelector((state) => state.select.trippingInfo.duration);
+    const getTrippingDistance = useSelector((state) => state.select.trippingInfo.distance);
 
     return (
         
