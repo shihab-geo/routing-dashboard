@@ -41,7 +41,6 @@ export const TripInfoPanel = (props) => {
   const dispatch = useDispatch();
   const gqlUrl = API_PARAMS.GRAPHQL_API_ENDPOINT;
 
-  const [dsoNumber, setDsoNumber] = useState();
   const [showBestRoute, setShowBestRoute] = useState(false);
 
   const getAgentPointsData = useSelector((state) => state.mapreducer.agentPoints);
@@ -59,7 +58,6 @@ export const TripInfoPanel = (props) => {
     //Update show best route status
     setShowBestRoute(true);
 
-    console.log(dso);
     //01833318404
 
     //Dispatch Agent Points of the input DSO
