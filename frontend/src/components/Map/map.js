@@ -5,7 +5,7 @@ import "mapbox-gl/dist/mapbox-gl.css";
 import "./map.css";
 import {
     routingLayer, bestRoutePolylineLayerCase, bestRoutePolylineLayer,
-    distributorLocLayer
+    distributorLocLayer,
 } from "./mapLayers";
 import {
     setShowRoutingInfo,
