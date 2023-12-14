@@ -27,6 +27,8 @@ export const BodyLayout = (props) => {
     const dispatch = useDispatch();
 
     const getPopUpInfoBoxStatus = useSelector((state) => state.mapreducer.showRoutingInfo);
+    const getActivePanel = useSelector((state) => state.select.panelInfo.activePanel);
+
 
 
     const {
@@ -102,7 +104,7 @@ export const BodyLayout = (props) => {
                 <Map ref={mapRef} />
 
                 {/* {getPopUpInfoBoxStatus === true ? <PopUpInfoBox /> : null} */}
-                <PopUpInfoBox />
+                <PopUpInfoBox activePanel={getActivePanel}/>
 
             </Layout>
 
