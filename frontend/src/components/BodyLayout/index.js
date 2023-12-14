@@ -13,7 +13,7 @@ import { Map } from "../Map/map";
 import { useSelector, useDispatch } from "react-redux";
 import * as STRING from "../../strings";
 import {
-    setRoutingDistance, setRoutingDuration,
+    setRoutingDistance, setRoutingDuration, setActivePanel
 } from "../../redux/slices/selectSlice";
 
 
@@ -43,6 +43,10 @@ export const BodyLayout = (props) => {
 
     }
 
+    const onPanelChange = (key) => {
+        dispatch(setActivePanel({ data: key }));
+    };
+
 
     return (
         <Layout className="site-layout-background">
@@ -58,7 +62,7 @@ export const BodyLayout = (props) => {
 
                 <Collapse
                     className="custom-collapse"
-                    defaultActiveKey={['1']}
+                    defaultActiveKey={STRING.ACTIVE_PANEL_ROUTING}
                     accordion
                     expandIcon={({ isActive }) =>
                         <CaretRightOutlined className="color-blue-dark"
@@ -67,16 +71,19 @@ export const BodyLayout = (props) => {
                             fill={'red'}
                         />
                     }
+
+                    onChange={onPanelChange}
+
                 >
-                    <Panel style={{ fontSize: "18px", fontWeight: "700" }} header={<AccordionHeader label={STRING.TITLE_ROUTING} img={faLocationDot} />} key="1">
+                    <Panel style={{ fontSize: "18px", fontWeight: "700" }} header={<AccordionHeader label={STRING.TITLE_ROUTING} img={faLocationDot} />} key={STRING.ACTIVE_PANEL_ROUTING}>
 
                         <RoutingInfoPanel pane={STRING.ACTIVE_PANEL_ROUTING} mapRef={mapRef} />
 
                     </Panel>
 
-                    <Panel style={{ fontSize: "18px", fontWeight: "700" }} header={<AccordionHeader label={STRING.TITLE_TRIP} img={faLocationDot} />} key="2">
+                    <Panel style={{ fontSize: "18px", fontWeight: "700" }} header={<AccordionHeader label={STRING.TITLE_TRIP} img={faLocationDot} />} key={STRING.ACTIVE_PANEL_TRIPPING}>
 
-                        <TripTestPanel pane={STRING.ACTIVE_PANEL_TRIPPING } mapRef={mapRef} />
+                        <TripTestPanel pane={STRING.ACTIVE_PANEL_TRIPPING} mapRef={mapRef} />
 
                     </Panel>
 

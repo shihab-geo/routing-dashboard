@@ -12,8 +12,6 @@ import {
 import { fetchData, routingData } from "../../services/api.service";
 import { pointGeoJsonFromGeom } from "../Map/geoJsonConverter";
 import * as polylineDecode from "@mapbox/polyline";
-import * as STRING from "../../strings";
-
 
 
 
@@ -161,11 +159,6 @@ export const TripTestPanel = (props) => {
 
   }, [getDistributorName, getDso, showBestRoute])
 
-
-  //Update the Active Panel
-  useEffect(() => {
-    dispatch(setActivePanel({ data: STRING.ACTIVE_PANEL_TRIPPING }));
-  }, [])
 
 
 

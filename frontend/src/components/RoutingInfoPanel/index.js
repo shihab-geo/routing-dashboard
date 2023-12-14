@@ -14,6 +14,7 @@ import {
 export const RoutingInfoPanel = (props) => {
 
   const mapRef = props.mapRef;
+  const panel = props.pane;
   const dispatch = useDispatch();
   const [form] = Form.useForm();
 
@@ -53,7 +54,7 @@ export const RoutingInfoPanel = (props) => {
   useEffect(() => {
     //Dispatch the Active Panel
     dispatch(setActivePanel({ data: STRING.ACTIVE_PANEL_ROUTING }));
-  }, [])
+  }, [panel])
 
 
   //Update the form input values
