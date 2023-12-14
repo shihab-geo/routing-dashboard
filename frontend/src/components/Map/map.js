@@ -299,6 +299,7 @@ export const Map = forwardRef((props, ref) => {
         removeLayer,
         removeAllLayers,
         distanceMarker,
+        addBestRouting,
 
 
     }));
