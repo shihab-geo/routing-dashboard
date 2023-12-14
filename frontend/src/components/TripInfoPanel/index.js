@@ -12,6 +12,8 @@ import {
 import { fetchData, routingData } from "../../services/api.service";
 import { pointGeoJsonFromGeom } from "../Map/geoJsonConverter";
 import * as polylineDecode from "@mapbox/polyline";
+import * as COMMON_FUNC from "../../common";
+
 
 
 
@@ -117,7 +119,7 @@ export const TripInfoPanel = (props) => {
 
           //Dispatch the distance & duration
           dispatch(setTrippingDistance({ data: distance.toFixed(2) }));
-          dispatch(setTripingDuration({ data: duration }));
+          dispatch(setTripingDuration({ data: COMMON_FUNC.formatTime(duration) }));
 
           dsoBestRoute = polylineDecode.toGeoJSON(responseFromTripping.data.trips[0].geometry);
 
