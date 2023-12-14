@@ -14,6 +14,8 @@ import {
     setRouteFrom, setRouteTo,
 } from "../../redux/slices/selectSlice";
 import moment from 'moment';
+import * as turf from "@turf/turf";
+
 
 
 
@@ -248,6 +250,46 @@ export const Map = forwardRef((props, ref) => {
         }
 
     }
+
+    const addBestRouting = (dsoBestRoute, agentPoints, distributorLoc) => {
+        removeAllLayers();
+
+        // Create a popup, but don't add it to the map yet.
+        const popup = new mapboxgl.Popup({
+            closeButton: false,
+            closeOnClick: false,
+        });
+
+        map.current.addSource("best-route-polyline-source", {
+            type: "geojson",
+            data: dsoBestRoute,
+        });
+
+        map.current.addSource("distributor-loc-source", {
+            type: "geojson",
+            data: distributorLoc,
+        });
+
+        map.current.addSource("point-source", {
+            type: "geojson",
+            data: agentPoints,
+        });
+
+        dispatch(
+            setMapLayers({
+                layers: ["best-route-polyline-layer-case", "best-route-polyline-layer", "distributor-loc-layer", "point-layer"],
+            })
+        );
+        dispatch(setMapSources({ sources: ["best-route-polyline-source", "distributor-loc-source", "point-source"] }));
+
+        // map.current.addLayer(bestRoutePolylineLayerCase, "l17_b");
+        // map.current.addLayer(bestRoutePolylineLayer, "l17_b");
+        // map.current.addLayer(distributorLocLayer);
+        // map.current.addLayer(pointLayer, "l9_a");
+
+        const bounds = turf.bbox(dsoBestRoute);
+        map.current.fitBounds(bounds, { padding: 100 });
+    };
 
 
 
