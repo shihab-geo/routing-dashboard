@@ -54,8 +54,8 @@ export const PopUpInfoBox = () => {
                                     textAlign: "center",
                                     font: "bold"
                                 }}>
-                                <p><strong>Duration:   {getRoutingDuration}</strong> </p>
-                                <p><strong>Distance:   {getRoutingDistance} KM</strong></p>
+                                <p><strong>Duration:   {getTrippingDuration}</strong> </p>
+                                <p><strong>Distance:   {getTrippingDistance} KM</strong></p>
                             </div>
 
 
