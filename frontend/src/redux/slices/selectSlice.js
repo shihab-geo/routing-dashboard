@@ -73,6 +73,14 @@ export const selectSlice = createSlice({
             state.tripTest.dso = action.payload.data;
         },
 
+        setTrippingDistance: (state, action) => {
+            state.tripTest.distance = action.payload.data;
+        },
+
+        setTripingDuration: (state, action) => {
+            state.tripTest.duration = action.payload.data;
+        },
+
     },
 
 })
