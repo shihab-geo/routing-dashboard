@@ -12,6 +12,9 @@ import { RoutingInfoBox } from '../RoutingInfoBox';
 import { Map } from "../Map/map";
 import { useSelector, useDispatch } from "react-redux";
 import * as STRING from "../../strings";
+import {
+    setDistance, setDuration,
+} from "../../redux/slices/selectSlice";
 
 
 const { Sider, Footer } = Layout;
@@ -21,6 +24,7 @@ export const BodyLayout = (props) => {
 
     const mapRef = props.mapRef;
     const [menu, setmenu] = useState(null);
+    const dispatch = useDispatch();
 
     const getRoutingInfoBoxStatus = useSelector((state) => state.mapreducer.showRoutingInfo);
 
@@ -34,6 +38,8 @@ export const BodyLayout = (props) => {
         mapRef.current.removeAllLayers();
 
         //Clear the routing info
+        dispatch(setDistance({ data: null }));
+        dispatch(setDuration({ data: null }));
 
     }
 
