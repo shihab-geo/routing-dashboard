@@ -7,7 +7,8 @@ import {
   getAgentPoints, getDistHouseLoc
 } from "../../redux/slices/mapSlice";
 import {
-  setDso, 
+  setDso, setTrippingDistance,
+  setTripingDuration,
 } from "../../redux/slices/selectSlice";
 import { fetchData, routingData } from "../../services/api.service";
 import { pointGeoJsonFromGeom } from "../Map/geoJsonConverter";
@@ -133,6 +134,10 @@ export const TripInfoPanel = (props) => {
           // console.log(responseFromTripping);
           const distance = responseFromTripping.data.trips[0].distance / 1000;
           const duration = responseFromTripping.data.trips[0].duration;
+
+          //Dispatch the distance & duration
+          dispatch(setTrippingDistance({ data: distance }));
+          dispatch(setTripingDuration({ data: duration }));
 
           dsoBestRoute = polylineDecode.toGeoJSON(responseFromTripping.data.trips[0].geometry);
 
