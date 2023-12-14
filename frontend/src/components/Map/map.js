@@ -5,7 +5,7 @@ import "mapbox-gl/dist/mapbox-gl.css";
 import "./map.css";
 import {
     routingLayer, bestRoutePolylineLayerCase, bestRoutePolylineLayer,
-    distributorLocLayer,
+    distributorLocLayer, pointLayer,
 } from "./mapLayers";
 import {
     setShowRoutingInfo,
@@ -283,7 +283,7 @@ export const Map = forwardRef((props, ref) => {
         map.current.addLayer(bestRoutePolylineLayerCase, "l17_b");
         map.current.addLayer(bestRoutePolylineLayer, "l17_b");
         map.current.addLayer(distributorLocLayer);
-        // map.current.addLayer(pointLayer, "l9_a");
+        map.current.addLayer(pointLayer, "l9_a");
 
         const bounds = turf.bbox(dsoBestRoute);
         map.current.fitBounds(bounds, { padding: 100 });
