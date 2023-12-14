@@ -1,6 +1,6 @@
 import { AudioOutlined } from '@ant-design/icons';
 import {React, useEffect,useState} from 'react';
-import { Input, Space } from 'antd';
+import { Alert, Input, Space } from 'antd';
 import * as API_PARAMS from '../../middleware/query';
 import { useDispatch, useSelector } from "react-redux";
 import { 
@@ -100,6 +100,42 @@ export const TripTestPanel = (props) => {
       const agentPoints = pointGeoJsonFromGeom(response.data.data.agentLoc);
             let distributorLoc = response.data.data.distributorLoc;
             var dsoBestRoute = null;
+
+            if (distributorLoc.length === 0) {
+              let message = 'Distributor House Location Not Found!!'
+              let description = 'Unable to show the best route since the distributor house location is not found.'
+              // openNotification('error', 'top', message, description)
+              Alert('Error: '+ message);
+
+          } else {
+
+              //OSRM Optimized Routing
+              let locations = [];
+              locations.push(distributorLoc[0].geom.coordinates);
+              for (let coord of agentPoints.features) {
+                  let lat = coord.geometry.coordinates[1];
+                  let lon = coord.geometry.coordinates[0];
+                  let coordinateArray = lon + "," + lat;
+                  locations.push(coordinateArray);
+              }
+              locations.push(distributorLoc[0].geom.coordinates);
+
+              let url = API_PARAMS.OSRM_API_ENDPOINT;
+              let api = url + "trip/v1/driving/" + locations.join(";") + "?geometries=polyline&overview=full&steps=true&annotations=false";
+              let responseFromRouting = await routingData(api);
+              // console.log(responseFromRouting.data.trips[0].geometry);
+              dsoBestRoute = polylineDecode.toGeoJSON(responseFromRouting.data.trips[0].geometry);
+
+
+              if (response.status === 200) {
+                  if (mapRef.current === undefined) return; // Map ref is not set yet
+                  mapRef.current.addBestRouting(dsoBestRoute, agentPoints, distributorLoc[0].geom);
+              } else {
+                  console.log(response.status);
+              }
+
+          }
+
 
       }
 
