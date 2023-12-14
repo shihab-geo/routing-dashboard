@@ -10,6 +10,7 @@ import {
   setDso, 
 } from "../../redux/slices/selectSlice";
 import { fetchData, routingData } from "../../services/api.service";
+import {pointGeoJsonFromGeom} from "../Map/geoJsonConverter";
 
 
 
@@ -95,6 +96,10 @@ export const TripTestPanel = (props) => {
           dso: getDso,
           distributor: getDistributorName,
       });
+
+      const agentPoints = pointGeoJsonFromGeom(response.data.data.agentLoc);
+            let distributorLoc = response.data.data.distributorLoc;
+            var dsoBestRoute = null;
 
       }
 
