@@ -7,7 +7,7 @@ const panelInfo = {
 
 };
 
-const routingInfo = {
+const routeInfo = {
     engine: STRING_VARS.ENGINE_OSRM,
     profile: STRING_VARS.PROFILE_CAR,
     duration: null,
@@ -16,7 +16,7 @@ const routingInfo = {
     routeTo: null,
 }
 
-const trippingInfo = {
+const tripInfo = {
     distributor: null,
     dso: null,
     duration: null,
@@ -27,8 +27,8 @@ const trippingInfo = {
 
 const initialState = {
     panelInfo,
-    routingInfo,
-    trippingInfo,
+    routeInfo,
+    tripInfo,
 
 }
 
@@ -42,43 +42,43 @@ export const selectSlice = createSlice({
         },
 
         setEngine: (state, action) => {
-            state.routingInfo.engine = action.payload.data;
+            state.routeInfo.engine = action.payload.data;
         },
 
         setProfile: (state, action) => {
-            state.routingInfo.profile = action.payload.data;
+            state.routeInfo.profile = action.payload.data;
         },
 
         setRoutingDistance: (state, action) => {
-            state.routingInfo.distance = action.payload.data;
+            state.routeInfo.distance = action.payload.data;
         },
 
         setRoutingDuration: (state, action) => {
-            state.routingInfo.duration = action.payload.data;
+            state.routeInfo.duration = action.payload.data;
         },
 
         setRouteFrom: (state, action) => {
-            state.routingInfo.routeFrom = action.payload.data;
+            state.routeInfo.routeFrom = action.payload.data;
         },
 
         setRouteTo: (state, action) => {
-            state.routingInfo.routeTo = action.payload.data;
+            state.routeInfo.routeTo = action.payload.data;
         },
 
         setDistributor: (state, action) => {
-            state.trippingInfo.distributor = action.payload.data;
+            state.tripInfo.distributor = action.payload.data;
         },
 
         setDso: (state, action) => {
-            state.trippingInfo.dso = action.payload.data;
+            state.tripInfo.dso = action.payload.data;
         },
 
         setTrippingDistance: (state, action) => {
-            state.trippingInfo.distance = action.payload.data;
+            state.tripInfo.distance = action.payload.data;
         },
 
         setTripingDuration: (state, action) => {
-            state.trippingInfo.duration = action.payload.data;
+            state.tripInfo.duration = action.payload.data;
         },
 
     },

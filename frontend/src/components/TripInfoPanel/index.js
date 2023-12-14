@@ -26,8 +26,8 @@ export const TripInfoPanel = (props) => {
   const [showBestRoute, setShowBestRoute] = useState(false);
 
 
-  const getDistributorName = useSelector((state) => state.select.trippingInfo.distributor);
-  const getDso = useSelector((state) => state.select.trippingInfo.dso);
+  const getDistributorName = useSelector((state) => state.select.tripInfo.distributor);
+  const getDso = useSelector((state) => state.select.tripInfo.dso);
 
 
 

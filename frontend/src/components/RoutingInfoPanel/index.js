@@ -24,8 +24,8 @@ export const RoutingInfoPanel = (props) => {
 
   const getActivePanel = useSelector((state) => state.select.panelInfo.activePanel);
 
-  const routeFromHere = useSelector((state) => state.select.routingInfo.routeFrom);
-  const routeToHere = useSelector((state) => state.select.routingInfo.routeTo);
+  const routeFromHere = useSelector((state) => state.select.routeInfo.routeFrom);
+  const routeToHere = useSelector((state) => state.select.routeInfo.routeTo);
 
 
   //OnChange Engine Radio Buttons

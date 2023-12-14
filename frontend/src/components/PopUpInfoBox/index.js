@@ -10,11 +10,11 @@ export const PopUpInfoBox = (props) => {
 
     const getActivePanel = useSelector((state) => state.select.panelInfo.activePanel);
 
-    const getRoutingDuration = useSelector((state) => state.select.routingInfo.duration);
-    const getRoutingDistance = useSelector((state) => state.select.routingInfo.distance);
+    const getRoutingDuration = useSelector((state) => state.select.routeInfo.duration);
+    const getRoutingDistance = useSelector((state) => state.select.routeInfo.distance);
 
-    const getTrippingDuration = useSelector((state) => state.select.trippingInfo.duration);
-    const getTrippingDistance = useSelector((state) => state.select.trippingInfo.distance);
+    const getTrippingDuration = useSelector((state) => state.select.tripInfo.duration);
+    const getTrippingDistance = useSelector((state) => state.select.tripInfo.distance);
 
 
     return (
