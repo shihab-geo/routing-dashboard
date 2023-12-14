@@ -19,5 +19,5 @@ export const PROFILE_CYCLE = "Cycle";
 export const PROFILE_FOOT = "Foot";
 
 
-export const INFORMATION_ROUTING = "Routing Information";
-export const INFORMATION_TRIPPING = "Tripping Information";
+export const INFORMATION_ROUTING = "Route Information";
+export const INFORMATION_TRIPPING = "Trip Information";
