@@ -4,7 +4,7 @@ import "./index.css";
 import { useSelector, useDispatch } from "react-redux";
 
 
-export const RoutingInfoBox = () => {
+export const PopUpInfoBox = () => {
 
     const getDuration = useSelector((state) => state.select.routingInfo.duration);
     const getDistance = useSelector((state) => state.select.routingInfo.distance)

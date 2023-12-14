@@ -8,7 +8,7 @@ import { AccordionHeader } from '../AccordionHeader';
 import { RoutingInfoPanel } from '../RoutingInfoPanel';
 import { TripInfoPanel } from '../TripInfoPanel';
 import { ButtonCommon } from '../ButtonCommon';
-import { RoutingInfoBox } from '../RoutingInfoBox';
+import { PopUpInfoBox } from '../PopUpInfoBox';
 import { Map } from "../Map/map";
 import { useSelector, useDispatch } from "react-redux";
 import * as STRING from "../../strings";
@@ -26,7 +26,7 @@ export const BodyLayout = (props) => {
     const [menu, setmenu] = useState(null);
     const dispatch = useDispatch();
 
-    const getRoutingInfoBoxStatus = useSelector((state) => state.mapreducer.showRoutingInfo);
+    const getPopUpInfoBoxStatus = useSelector((state) => state.mapreducer.showRoutingInfo);
 
 
     const {
@@ -101,8 +101,8 @@ export const BodyLayout = (props) => {
 
                 <Map ref={mapRef} />
 
-                {/* {getRoutingInfoBoxStatus === true ? <RoutingInfoBox /> : null} */}
-                <RoutingInfoBox />
+                {/* {getPopUpInfoBoxStatus === true ? <PopUpInfoBox /> : null} */}
+                <PopUpInfoBox />
 
             </Layout>
 
