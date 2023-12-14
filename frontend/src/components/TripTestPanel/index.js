@@ -162,7 +162,7 @@ export const TripTestPanel = (props) => {
   }, [getDistributorName, getDso, showBestRoute])
 
 
-  //Dispatch the Active Panel
+  //Update the Active Panel
   useEffect(() => {
     dispatch(setActivePanel({ data: STRING.ACTIVE_PANEL_TRIPPING }));
   }, [])
