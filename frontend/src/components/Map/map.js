@@ -3,7 +3,7 @@ import { useDispatch, useSelector } from "react-redux";
 import mapboxgl from "mapbox-gl";
 import "mapbox-gl/dist/mapbox-gl.css";
 import "./map.css";
-import { routingLayer } from "./mapLayers";
+import { routingLayer,bestRoutePolylineLayerCase,bestRoutePolylineLayer } from "./mapLayers";
 import {
     setShowRoutingInfo,
     setMapLayers, setMapSources,
@@ -252,13 +252,8 @@ export const Map = forwardRef((props, ref) => {
     }
 
     const addBestRouting = (dsoBestRoute, agentPoints, distributorLoc) => {
+      
         removeAllLayers();
-
-        // Create a popup, but don't add it to the map yet.
-        const popup = new mapboxgl.Popup({
-            closeButton: false,
-            closeOnClick: false,
-        });
 
         map.current.addSource("best-route-polyline-source", {
             type: "geojson",
@@ -282,8 +277,8 @@ export const Map = forwardRef((props, ref) => {
         );
         dispatch(setMapSources({ sources: ["best-route-polyline-source", "distributor-loc-source", "point-source"] }));
 
-        // map.current.addLayer(bestRoutePolylineLayerCase, "l17_b");
-        // map.current.addLayer(bestRoutePolylineLayer, "l17_b");
+        map.current.addLayer(bestRoutePolylineLayerCase, "l17_b");
+        map.current.addLayer(bestRoutePolylineLayer, "l17_b");
         // map.current.addLayer(distributorLocLayer);
         // map.current.addLayer(pointLayer, "l9_a");
 

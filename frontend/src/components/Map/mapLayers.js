@@ -31,8 +31,9 @@ export const bestRoutePolylineLayerCase = {
     },
 };
 
-export const bestRouteWithTrackingPolylineLayer = {
-    id: "best-route-with-tracking-polyline-layer",
+
+export const bestRoutePolylineLayer = {
+    id: "best-route-polyline-layer",
     type: "line",
     source: "best-route-polyline-source",
     layout: {
@@ -41,8 +42,7 @@ export const bestRouteWithTrackingPolylineLayer = {
     },
     paint: {
         "line-color": "#b54141",
-        "line-width": ["interpolate", ["exponential", 1.5], ["zoom"], 5, 3, 18, 6],
-        "line-opacity": 1
+        "line-width": ["interpolate", ["exponential", 1.5], ["zoom"], 5, 7, 18, 12],
     },
 };
 
