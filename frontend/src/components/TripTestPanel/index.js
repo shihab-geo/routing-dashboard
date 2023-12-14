@@ -77,6 +77,27 @@ export const TripTestPanel = (props) => {
     }
     
   }, [getDistributorName])
+
+
+  //Best Route
+  useEffect(() => {
+    
+    if (condition) {
+
+      const fetchBestRoute = async () => {
+
+        const response = await fetchData(gqlUrl, API_PARAMS.GET_BEST_ROUTE, {
+          dso: distribInfo.selectedDso,
+          distributor: getSelectedDistributor,
+      });
+
+      }
+
+
+      
+    }
+  }, [])
+  
   
 
 

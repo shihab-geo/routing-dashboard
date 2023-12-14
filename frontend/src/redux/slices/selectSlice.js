@@ -18,6 +18,7 @@ const routingInfo = {
 
 const tripTest = {
     distributor: null,
+    dso: null,
 
 }
 
@@ -66,6 +67,10 @@ export const selectSlice = createSlice({
             state.tripTest.distributor = action.payload.data;
         },
 
+        setDso: (state, action) => {
+            state.tripTest.dso = action.payload.data;
+        },
+
     },
 
 })
@@ -79,6 +84,7 @@ export const {
     setRouteFrom,
     setRouteTo,
     setDistributor,
+    setDso,
 
 } = selectSlice.actions
 
