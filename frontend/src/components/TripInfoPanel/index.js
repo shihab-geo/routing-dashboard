@@ -7,7 +7,7 @@ import {
   getAgentPoints, getDistHouseLoc
 } from "../../redux/slices/mapSlice";
 import {
-  setDso, setActivePanel
+  setDso, 
 } from "../../redux/slices/selectSlice";
 import { fetchData, routingData } from "../../services/api.service";
 import { pointGeoJsonFromGeom } from "../Map/geoJsonConverter";

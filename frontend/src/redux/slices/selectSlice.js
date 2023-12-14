@@ -95,6 +95,8 @@ export const {
     setRouteTo,
     setDistributor,
     setDso,
+    setTrippingDistance,
+    setTripingDuration,
 
 } = selectSlice.actions
 
