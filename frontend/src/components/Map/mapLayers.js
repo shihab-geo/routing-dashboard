@@ -61,4 +61,26 @@ export const distributorLocLayer = {
     },
 };
 
+export const pointLayer = {
+    id: "point-layer",
+    type: "symbol",
+    source: "point-source",
+    layout: {
+        "icon-image": "bk-agent-15",
+        "icon-allow-overlap": true,
+        "text-optional": true,
+        "text-field": ["get", "agents"],
+        "text-font": ["bscm", "MuliBold"],
+        "text-offset": [0, 1],
+        "text-anchor": "top",
+        "text-size": 14
+    },
+    paint: {
+        "text-halo-width": 1.25,
+        "text-halo-color": "rgba(255, 255, 255, 1)",
+        "text-halo-blur": 1,
+        "text-color": "#e0126e"
+    },
+};
+
 

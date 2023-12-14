@@ -282,7 +282,7 @@ export const Map = forwardRef((props, ref) => {
 
         map.current.addLayer(bestRoutePolylineLayerCase, "l17_b");
         map.current.addLayer(bestRoutePolylineLayer, "l17_b");
-        // map.current.addLayer(distributorLocLayer);
+        map.current.addLayer(distributorLocLayer);
         // map.current.addLayer(pointLayer, "l9_a");
 
         const bounds = turf.bbox(dsoBestRoute);
