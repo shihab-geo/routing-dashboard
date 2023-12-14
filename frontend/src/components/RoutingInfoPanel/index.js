@@ -50,12 +50,6 @@ export const RoutingInfoPanel = (props) => {
 
   };
 
-  //Update the Active Panel
-  useEffect(() => {
-    //Dispatch the Active Panel
-    dispatch(setActivePanel({ data: STRING.ACTIVE_PANEL_ROUTING }));
-  }, [panel])
-
 
   //Update the form input values
   useEffect(() => {
