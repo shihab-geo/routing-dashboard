@@ -1,5 +1,5 @@
 import { AudioOutlined } from '@ant-design/icons';
-import {React, useEffect} from 'react';
+import {React, useEffect,useState} from 'react';
 import { Input, Space } from 'antd';
 import * as API_PARAMS from '../../middleware/query';
 import { useDispatch, useSelector } from "react-redux";
@@ -33,6 +33,8 @@ export const TripTestPanel = (props) => {
   const dispatch = useDispatch();
   const gqlUrl = API_PARAMS.GRAPHQL_API_ENDPOINT;
 
+  const [dsoNumber, setDsoNumber] = useState();
+
   const getAgentPointsData = useSelector((state) => state.mapreducer.agentPoints);
   const getDistributorName = useSelector((state) => state.select.tripTest.distributor);
 
@@ -40,6 +42,9 @@ export const TripTestPanel = (props) => {
 
   //On Trip Test Search
   const onSearch = (dso) => {
+
+    //set DSO
+    setDsoNumber(dso);
 
     console.log(dso);
     //01833318404
