@@ -9,8 +9,8 @@ import * as STRING from "../../strings";
 export const PopUpInfoBox = () => {
 
     const getActivePanel = useSelector((state) => state.select.panelInfo.activePanel);
-    const getDuration = useSelector((state) => state.select.routingInfo.duration);
-    const getDistance = useSelector((state) => state.select.routingInfo.distance);
+    const getRoutingDuration = useSelector((state) => state.select.routingInfo.duration);
+    const getRoutingDistance = useSelector((state) => state.select.routingInfo.distance);
 
     return (
         
@@ -24,8 +24,8 @@ export const PopUpInfoBox = () => {
                         textAlign: "center",
                         font: "bold"
                     }}>
-                    <p><strong>Duration:   {getDuration}</strong> </p>
-                    <p><strong>Distance:   {getDistance} KM</strong></p>
+                    <p><strong>Duration:   {getRoutingDuration}</strong> </p>
+                    <p><strong>Distance:   {getRoutingDistance} KM</strong></p>
                 </div>
 
 
