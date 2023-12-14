@@ -9,6 +9,7 @@ import {
 import { 
   setDso, 
 } from "../../redux/slices/selectSlice";
+import { fetchData, routingData } from "../../services/api.service";
 
 
 
@@ -83,24 +84,25 @@ export const TripTestPanel = (props) => {
   }, [getDistributorName])
 
 
-  //Best Route
+  //Fetch Best Route
   useEffect(() => {
     
-    // if (condition) {
+    if (getDistributorName && getDso) {
 
-    //   const fetchBestRoute = async () => {
+      const fetchBestRoute = async () => {
 
-    //     const response = await fetchData(gqlUrl, API_PARAMS.GET_BEST_ROUTE, {
-    //       dso: distribInfo.selectedDso,
-    //       distributor: getSelectedDistributor,
-    //   });
+        const response = await fetchData(gqlUrl, API_PARAMS.GET_BEST_ROUTE, {
+          dso: getDso,
+          distributor: getDistributorName,
+      });
 
-    //   }
+      }
 
+      fetchBestRoute();
+  
+    }
 
-      
-    // }
-  }, [])
+  }, [getDistributorName,getDso])
   
   
 
