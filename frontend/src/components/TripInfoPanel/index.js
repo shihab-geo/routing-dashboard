@@ -136,7 +136,7 @@ export const TripInfoPanel = (props) => {
           const duration = responseFromTripping.data.trips[0].duration;
 
           //Dispatch the distance & duration
-          dispatch(setTrippingDistance({ data: distance }));
+          dispatch(setTrippingDistance({ data: distance.toFixed(2) }));
           dispatch(setTripingDuration({ data: duration }));
 
           dsoBestRoute = polylineDecode.toGeoJSON(responseFromTripping.data.trips[0].geometry);
