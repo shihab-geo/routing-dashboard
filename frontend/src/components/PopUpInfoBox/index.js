@@ -17,23 +17,52 @@ export const PopUpInfoBox = () => {
     const getTrippingDistance = useSelector((state) => state.select.trippingInfo.distance);
 
     return (
-        
+
         <div className='merchant-card'>
-            <Card
-                size="small"
-                title="Routing Information"
-            >
-                <div
-                    style={{
-                        textAlign: "center",
-                        font: "bold"
-                    }}>
-                    <p><strong>Duration:   {getRoutingDuration}</strong> </p>
-                    <p><strong>Distance:   {getRoutingDistance} KM</strong></p>
-                </div>
+
+            {
+                getActivePanel === STRING.ACTIVE_PANEL_ROUTING
+
+                    ?
+                    <>
+                        <Card
+                            size="small"
+                            title="Routing Information"
+                        >
+                            <div
+                                style={{
+                                    textAlign: "center",
+                                    font: "bold"
+                                }}>
+                                <p><strong>Duration:   {getRoutingDuration}</strong> </p>
+                                <p><strong>Distance:   {getRoutingDistance} KM</strong></p>
+                            </div>
 
 
-            </Card>
+                        </Card>
+                    </>
+
+                    :
+
+                    <>
+                        <Card
+                            size="small"
+                            title="Routing Information"
+                        >
+                            <div
+                                style={{
+                                    textAlign: "center",
+                                    font: "bold"
+                                }}>
+                                <p><strong>Duration:   {getRoutingDuration}</strong> </p>
+                                <p><strong>Distance:   {getRoutingDistance} KM</strong></p>
+                            </div>
+
+
+                        </Card>
+                    </>
+            }
+
         </div>
     );
 }
