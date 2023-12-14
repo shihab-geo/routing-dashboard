@@ -3,7 +3,7 @@ import React, { useEffect, useState } from 'react';
 import { UserOutlined } from '@ant-design/icons';
 import { Breadcrumb, Layout, Menu, theme, Collapse } from 'antd';
 import { CaretRightOutlined, EnvironmentOutlined } from '@ant-design/icons';
-import { faLocationDot, faPlane } from '@fortawesome/free-solid-svg-icons'
+import { faRoute, faPlane } from '@fortawesome/free-solid-svg-icons'
 import { AccordionHeader } from '../AccordionHeader';
 import { RoutingInfoPanel } from '../RoutingInfoPanel';
 import { TripInfoPanel } from '../TripInfoPanel';
@@ -85,7 +85,7 @@ export const BodyLayout = (props) => {
                     onChange={onPanelChange}
 
                 >
-                    <Panel style={{ fontSize: "18px", fontWeight: "700" }} header={<AccordionHeader label={STRING.TITLE_ROUTING} img={faLocationDot} />} key={STRING.ACTIVE_PANEL_ROUTING}>
+                    <Panel style={{ fontSize: "18px", fontWeight: "700" }} header={<AccordionHeader label={STRING.TITLE_ROUTING} img={faRoute} />} key={STRING.ACTIVE_PANEL_ROUTING}>
 
                         <RoutingInfoPanel pane={STRING.ACTIVE_PANEL_ROUTING} mapRef={mapRef} />
 
