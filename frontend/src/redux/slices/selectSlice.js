@@ -16,7 +16,7 @@ const routingInfo = {
     routeTo: null,
 }
 
-const tripTest = {
+const trippingInfo = {
     distributor: null,
     dso: null,
     duration: null,
@@ -28,7 +28,7 @@ const tripTest = {
 const initialState = {
     panelInfo,
     routingInfo,
-    tripTest,
+    trippingInfo,
 
 }
 
@@ -66,19 +66,19 @@ export const selectSlice = createSlice({
         },
 
         setDistributor: (state, action) => {
-            state.tripTest.distributor = action.payload.data;
+            state.trippingInfo.distributor = action.payload.data;
         },
 
         setDso: (state, action) => {
-            state.tripTest.dso = action.payload.data;
+            state.trippingInfo.dso = action.payload.data;
         },
 
         setTrippingDistance: (state, action) => {
-            state.tripTest.distance = action.payload.data;
+            state.trippingInfo.distance = action.payload.data;
         },
 
         setTripingDuration: (state, action) => {
-            state.tripTest.duration = action.payload.data;
+            state.trippingInfo.duration = action.payload.data;
         },
 
     },
