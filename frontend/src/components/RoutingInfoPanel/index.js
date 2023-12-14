@@ -1,7 +1,7 @@
 import { React, useState, useEffect } from 'react';
 import { Input, Form, Col, Radio, Divider, Row, Space } from 'antd';
 import { useSelector, useDispatch } from "react-redux";
-import * as STRING_VARS from "../../strings";
+import * as STRING from "../../strings";
 import {
   setActivePanel,
   setEngine,
@@ -18,8 +18,8 @@ export const RoutingInfoPanel = (props) => {
   const [form] = Form.useForm();
 
 
-  const [engineState, setEngineState] = useState(STRING_VARS.ENGINE_OSRM);
-  const [profileState, setProfileState] = useState(STRING_VARS.PROFILE_CAR);
+  const [engineState, setEngineState] = useState(STRING.ENGINE_OSRM);
+  const [profileState, setProfileState] = useState(STRING.PROFILE_CAR);
 
   const getActivePanel = useSelector((state) => state.select.panelInfo.activePanel);
 
@@ -52,7 +52,7 @@ export const RoutingInfoPanel = (props) => {
   //Update the Active Panel
   useEffect(() => {
     //Dispatch the Active Panel
-    dispatch(setActivePanel({ data: STRING_VARS.ACTIVE_PANEL_ROUTING }));
+    dispatch(setActivePanel({ data: STRING.ACTIVE_PANEL_ROUTING }));
   }, [])
 
 
@@ -65,7 +65,7 @@ export const RoutingInfoPanel = (props) => {
   //? Plot the Routing Map
   // useEffect(() => {
 
-  //   if (getActivePanel === STRING_VARS.ACTIVE_PANEL_ROUTING) {
+  //   if (getActivePanel === STRING.ACTIVE_PANEL_ROUTING) {
   //           mapRef.current.distanceMarker();
 
   //   }
@@ -104,43 +104,43 @@ export const RoutingInfoPanel = (props) => {
       </Form>
 
       {/* Engine */}
-      <Divider>{STRING_VARS.TITLE_ENGINE}</Divider>
+      <Divider>{STRING.TITLE_ENGINE}</Divider>
 
       <>
         <Radio.Group onChange={onEngineChange} value={engineState}>
           <Row gutter={12}>
             <Col span={12}>
-              <Radio value={STRING_VARS.ENGINE_OSRM}>{STRING_VARS.ENGINE_OSRM}</Radio>
+              <Radio value={STRING.ENGINE_OSRM}>{STRING.ENGINE_OSRM}</Radio>
             </Col>
 
             <Col span={12}>
-              <Radio value={STRING_VARS.ENGINE_VALHALLA}>{STRING_VARS.ENGINE_VALHALLA}</Radio>
+              <Radio value={STRING.ENGINE_VALHALLA}>{STRING.ENGINE_VALHALLA}</Radio>
             </Col>
 
             <Col span={12}>
-              <Radio value={STRING_VARS.ENGINE_GRAPHHOPPER}>{STRING_VARS.ENGINE_GRAPHHOPPER}</Radio>
+              <Radio value={STRING.ENGINE_GRAPHHOPPER}>{STRING.ENGINE_GRAPHHOPPER}</Radio>
             </Col>
           </Row>
         </Radio.Group>
       </>
 
       {/* Profile */}
-      <Divider>{STRING_VARS.TITLE_PROFILE}</Divider>
+      <Divider>{STRING.TITLE_PROFILE}</Divider>
 
       <>
         <Radio.Group onChange={onProfileChange} value={profileState}>
           <Row gutter={12}>
             <Col span={12}>
-              <Radio value={STRING_VARS.PROFILE_CAR}>{STRING_VARS.PROFILE_CAR}</Radio>
+              <Radio value={STRING.PROFILE_CAR}>{STRING.PROFILE_CAR}</Radio>
             </Col>
             <Col span={12}>
-              <Radio value={STRING_VARS.PROFILE_MOTORBIKE}>{STRING_VARS.PROFILE_MOTORBIKE}</Radio>
+              <Radio value={STRING.PROFILE_MOTORBIKE}>{STRING.PROFILE_MOTORBIKE}</Radio>
             </Col>
             <Col span={12}>
-              <Radio value={STRING_VARS.PROFILE_CYCLE}>{STRING_VARS.PROFILE_CYCLE}</Radio>
+              <Radio value={STRING.PROFILE_CYCLE}>{STRING.PROFILE_CYCLE}</Radio>
             </Col>
             <Col span={12}>
-              <Radio value={STRING_VARS.PROFILE_FOOT}>{STRING_VARS.PROFILE_FOOT}</Radio>
+              <Radio value={STRING.PROFILE_FOOT}>{STRING.PROFILE_FOOT}</Radio>
             </Col>
           </Row>
         </Radio.Group>

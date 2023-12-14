@@ -70,13 +70,13 @@ export const BodyLayout = (props) => {
                 >
                     <Panel style={{ fontSize: "18px", fontWeight: "700" }} header={<AccordionHeader label={STRING.TITLE_ROUTING} img={faLocationDot} />} key="1">
 
-                        <RoutingInfoPanel pane='ROUTING_TEST' mapRef={mapRef} />
+                        <RoutingInfoPanel pane={STRING.ACTIVE_PANEL_ROUTING} mapRef={mapRef} />
 
                     </Panel>
 
                     <Panel style={{ fontSize: "18px", fontWeight: "700" }} header={<AccordionHeader label={STRING.TITLE_TRIP} img={faLocationDot} />} key="2">
 
-                        <TripTestPanel pane='TRIP_TEST' mapRef={mapRef} />
+                        <TripTestPanel pane={STRING.ACTIVE_PANEL_TRIPPING } mapRef={mapRef} />
 
                     </Panel>
 
