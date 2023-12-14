@@ -18,6 +18,7 @@ import {
 } from "../../redux/slices/selectSlice";
 import moment from 'moment';
 import * as turf from "@turf/turf";
+import * as COMMON_FUNC from "../../common";
 
 
 
@@ -40,17 +41,17 @@ export const Map = forwardRef((props, ref) => {
 
     const { mapLayers, mapSources } = useSelector((state) => state.mapreducer);
 
-    //Format the time
-    const formatTime = (totalSeconds) => {
-        const hours = Math.floor(totalSeconds / 3600);
-        const minutes = Math.floor((totalSeconds % 3600) / 60);
-        // const seconds = totalSeconds % 60;
-        const seconds = Math.round((totalSeconds % 60) * 100) / 100; // Round to two decimal places
+    // //Format the time
+    // const formatTime = (totalSeconds) => {
+    //     const hours = Math.floor(totalSeconds / 3600);
+    //     const minutes = Math.floor((totalSeconds % 3600) / 60);
+    //     // const seconds = totalSeconds % 60;
+    //     const seconds = Math.round((totalSeconds % 60) * 100) / 100; // Round to two decimal places
 
 
-        const formattedTime = `${String(hours).padStart(2, '0')}:${String(minutes).padStart(2, '0')}:${String(seconds).padStart(2, '0')}`;
-        return formattedTime;
-    }
+    //     const formattedTime = `${String(hours).padStart(2, '0')}:${String(minutes).padStart(2, '0')}:${String(seconds).padStart(2, '0')}`;
+    //     return formattedTime;
+    // }
 
 
     //Calculate the Routing Distance
@@ -88,7 +89,7 @@ export const Map = forwardRef((props, ref) => {
 
 
                     //Dispatch the Duration
-                    dispatch(setRoutingDuration({ data: formatTime(duration) }));
+                    dispatch(setRoutingDuration({ data: COMMON_FUNC.formatTime(duration) }));
 
                     //Dispatch the Distance
                     dispatch(setRoutingDistance({ data: distance.toFixed(2) }));
