@@ -34,7 +34,7 @@ const suffix = (
 
 
 
-export const TripTestPanel = (props) => {
+export const TripInfoPanel = (props) => {
 
   const mapRef = props.mapRef;
   const dispatch = useDispatch();
@@ -44,8 +44,8 @@ export const TripTestPanel = (props) => {
   const [showBestRoute, setShowBestRoute] = useState(false);
 
   const getAgentPointsData = useSelector((state) => state.mapreducer.agentPoints);
-  const getDistributorName = useSelector((state) => state.select.tripTest.distributor);
-  const getDso = useSelector((state) => state.select.tripTest.dso);
+  const getDistributorName = useSelector((state) => state.select.trippingInfo.distributor);
+  const getDso = useSelector((state) => state.select.trippingInfo.dso);
 
 
 

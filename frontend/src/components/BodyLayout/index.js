@@ -6,7 +6,7 @@ import { CaretRightOutlined, EnvironmentOutlined } from '@ant-design/icons';
 import { faLocationDot } from '@fortawesome/free-solid-svg-icons'
 import { AccordionHeader } from '../AccordionHeader';
 import { RoutingInfoPanel } from '../RoutingInfoPanel';
-import { TripTestPanel } from '../TripTestPanel';
+import { TripInfoPanel } from '../TripInfoPanel';
 import { ButtonCommon } from '../ButtonCommon';
 import { RoutingInfoBox } from '../RoutingInfoBox';
 import { Map } from "../Map/map";
@@ -83,7 +83,7 @@ export const BodyLayout = (props) => {
 
                     <Panel style={{ fontSize: "18px", fontWeight: "700" }} header={<AccordionHeader label={STRING.TITLE_TRIP} img={faLocationDot} />} key={STRING.ACTIVE_PANEL_TRIPPING}>
 
-                        <TripTestPanel pane={STRING.ACTIVE_PANEL_TRIPPING} mapRef={mapRef} />
+                        <TripInfoPanel pane={STRING.ACTIVE_PANEL_TRIPPING} mapRef={mapRef} />
 
                     </Panel>
 
