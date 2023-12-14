@@ -11,6 +11,8 @@ import {
 } from "../../redux/slices/selectSlice";
 import { fetchData, routingData } from "../../services/api.service";
 import {pointGeoJsonFromGeom} from "../Map/geoJsonConverter";
+import * as polylineDecode from "@mapbox/polyline";
+
 
 
 
