@@ -6,6 +6,9 @@ import { useDispatch, useSelector } from "react-redux";
 import { 
   getAgentPoints,getDistHouseLoc 
 } from "../../redux/slices/mapSlice";
+import { 
+  setDso, 
+} from "../../redux/slices/selectSlice";
 
 
 
@@ -37,14 +40,15 @@ export const TripTestPanel = (props) => {
 
   const getAgentPointsData = useSelector((state) => state.mapreducer.agentPoints);
   const getDistributorName = useSelector((state) => state.select.tripTest.distributor);
+  const getDso = useSelector((state) => state.select.tripTest.dso);
 
 
 
   //On Trip Test Search
   const onSearch = (dso) => {
 
-    //set DSO
-    setDsoNumber(dso);
+    //Dispatch DSO
+    dispatch(setDso({data:dso}));
 
     console.log(dso);
     //01833318404
@@ -82,20 +86,20 @@ export const TripTestPanel = (props) => {
   //Best Route
   useEffect(() => {
     
-    if (condition) {
+    // if (condition) {
 
-      const fetchBestRoute = async () => {
+    //   const fetchBestRoute = async () => {
 
-        const response = await fetchData(gqlUrl, API_PARAMS.GET_BEST_ROUTE, {
-          dso: distribInfo.selectedDso,
-          distributor: getSelectedDistributor,
-      });
+    //     const response = await fetchData(gqlUrl, API_PARAMS.GET_BEST_ROUTE, {
+    //       dso: distribInfo.selectedDso,
+    //       distributor: getSelectedDistributor,
+    //   });
 
-      }
+    //   }
 
 
       
-    }
+    // }
   }, [])
   
   
