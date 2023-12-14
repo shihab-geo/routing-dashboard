@@ -126,9 +126,9 @@ export const TripTestPanel = (props) => {
           }
           locations.push(distributorLoc[0].geom.coordinates);
 
-          let url = API_PARAMS.OSRM_API_ENDPOINT;
-          let api = url + "trip/v1/driving/" + locations.join(";") + "?geometries=polyline&overview=full&steps=true&annotations=false";
-          let responseFromRouting = await routingData(api);
+          const url = API_PARAMS.OSRM_API_ENDPOINT;
+          const api = url + "trip/v1/driving/" + locations.join(";") + "?geometries=polyline&overview=full&steps=true&annotations=false";
+          const responseFromRouting = await routingData(api);
           // console.log(responseFromRouting.data.trips[0].geometry);
           dsoBestRoute = polylineDecode.toGeoJSON(responseFromRouting.data.trips[0].geometry);
 
