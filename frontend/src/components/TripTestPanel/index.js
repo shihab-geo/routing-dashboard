@@ -128,9 +128,13 @@ export const TripTestPanel = (props) => {
 
           const url = API_PARAMS.OSRM_API_ENDPOINT;
           const api = url + "trip/v1/driving/" + locations.join(";") + "?geometries=polyline&overview=full&steps=true&annotations=false";
-          const responseFromRouting = await routingData(api);
+          const responseFromTripping = await routingData(api);
           // console.log(responseFromRouting.data.trips[0].geometry);
-          dsoBestRoute = polylineDecode.toGeoJSON(responseFromRouting.data.trips[0].geometry);
+          // console.log(responseFromTripping);
+          const distance = responseFromTripping.data.trips[0].distance / 1000;
+          const duration = responseFromTripping.data.trips[0].duration;
+
+          dsoBestRoute = polylineDecode.toGeoJSON(responseFromTripping.data.trips[0].geometry);
 
 
           if (response.status === 200) {
