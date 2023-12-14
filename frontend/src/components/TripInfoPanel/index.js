@@ -81,60 +81,75 @@ export const TripInfoPanel = (props) => {
 
       const fetchBestRoute = async () => {
 
-        const response = await fetchData(gqlUrl, API_PARAMS.GET_BEST_ROUTE, {
-          dso: getDso,
-          distributor: getDistributorName,
-        });
+        try {
 
-        const agentPoints = pointGeoJsonFromGeom(response.data.data.agentLoc);
-        let distributorLoc = response.data.data.distributorLoc;
-        var dsoBestRoute = null;
+          const response = await fetchData(gqlUrl, API_PARAMS.GET_BEST_ROUTE, {
+            dso: getDso,
+            distributor: getDistributorName,
+          });
 
-        if (distributorLoc.length === 0) {
-          let message = 'Distributor House Location Not Found!!'
-          let description = 'Unable to show the best route since the distributor house location is not found.'
-          // openNotification('error', 'top', message, description)
-          Alert('Error: ' + message);
+          const agentPoints = pointGeoJsonFromGeom(response.data.data.agentLoc);
+          let distributorLoc = response.data.data.distributorLoc;
+          var dsoBestRoute = null;
 
-        } else {
+          if (distributorLoc.length === 0) {
+            let message = 'Distributor House Location Not Found!!'
+            let description = 'Unable to show the best route since the distributor house location is not found.'
+            // openNotification('error', 'top', message, description)
+            Alert('Error: ' + message);
 
-          //OSRM Optimized Routing
-          let locations = [];
-          locations.push(distributorLoc[0].geom.coordinates);
-          for (let coord of agentPoints.features) {
-            let lat = coord.geometry.coordinates[1];
-            let lon = coord.geometry.coordinates[0];
-            let coordinateArray = lon + "," + lat;
-            locations.push(coordinateArray);
-          }
-          locations.push(distributorLoc[0].geom.coordinates);
-
-          const url = API_PARAMS.OSRM_API_ENDPOINT;
-          const api = url + "trip/v1/driving/" + locations.join(";") + "?geometries=polyline&overview=full&steps=true&annotations=false";
-          const responseFromTripping = await routingData(api);
-          // console.log(responseFromRouting.data.trips[0].geometry);
-          // console.log(responseFromTripping);
-          const distance = responseFromTripping.data.trips[0].distance / 1000;
-          const duration = responseFromTripping.data.trips[0].duration;
-
-          //Dispatch the distance & duration
-          dispatch(setTrippingDistance({ data: distance.toFixed(2) }));
-          dispatch(setTripingDuration({ data: COMMON_FUNC.formatTime(duration) }));
-
-          dsoBestRoute = polylineDecode.toGeoJSON(responseFromTripping.data.trips[0].geometry);
-
-
-          if (response.status === 200) {
-            if (mapRef.current === undefined) return; // Map ref is not set yet
-            mapRef.current.addBestRouting(dsoBestRoute, agentPoints, distributorLoc[0].geom);
           } else {
-            console.log(response.status);
+
+            //OSRM Optimized Routing
+            let locations = [];
+            locations.push(distributorLoc[0].geom.coordinates);
+            for (let coord of agentPoints.features) {
+              let lat = coord.geometry.coordinates[1];
+              let lon = coord.geometry.coordinates[0];
+              let coordinateArray = lon + "," + lat;
+              locations.push(coordinateArray);
+            }
+            locations.push(distributorLoc[0].geom.coordinates);
+
+            const url = API_PARAMS.OSRM_API_ENDPOINT;
+            const api = url + "trip/v1/driving/" + locations.join(";") + "?geometries=polyline&overview=full&steps=true&annotations=false";
+
+            const responseFromTripping = await routingData(api);
+            // console.log(responseFromRouting.data.trips[0].geometry);
+            // console.log(responseFromTripping);
+            const distance = responseFromTripping.data.trips[0].distance / 1000;
+            const duration = responseFromTripping.data.trips[0].duration;
+
+            //Dispatch the distance & duration
+            dispatch(setTrippingDistance({ data: distance.toFixed(2) }));
+            dispatch(setTripingDuration({ data: COMMON_FUNC.formatTime(duration) }));
+
+            dsoBestRoute = polylineDecode.toGeoJSON(responseFromTripping.data.trips[0].geometry);
+
+
+            if (response.status === 200) {
+              if (mapRef.current === undefined) return; // Map ref is not set yet
+
+              try {
+
+                mapRef.current.addBestRouting(dsoBestRoute, agentPoints, distributorLoc[0].geom);
+
+              } catch (error) {
+
+              }
+
+            } else {
+              console.log(response.status);
+            }
+
           }
+
+          //Update show best route status
+          setShowBestRoute(false);
+
+        } catch (error) {
 
         }
-
-        //Update show best route status
-        setShowBestRoute(false);
 
       }
 
