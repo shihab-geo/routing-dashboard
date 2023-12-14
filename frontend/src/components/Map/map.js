@@ -3,7 +3,10 @@ import { useDispatch, useSelector } from "react-redux";
 import mapboxgl from "mapbox-gl";
 import "mapbox-gl/dist/mapbox-gl.css";
 import "./map.css";
-import { routingLayer,bestRoutePolylineLayerCase,bestRoutePolylineLayer } from "./mapLayers";
+import {
+    routingLayer, bestRoutePolylineLayerCase, bestRoutePolylineLayer,
+    distributorLocLayer
+} from "./mapLayers";
 import {
     setShowRoutingInfo,
     setMapLayers, setMapSources,
@@ -252,7 +255,7 @@ export const Map = forwardRef((props, ref) => {
     }
 
     const addBestRouting = (dsoBestRoute, agentPoints, distributorLoc) => {
-      
+
         removeAllLayers();
 
         map.current.addSource("best-route-polyline-source", {
