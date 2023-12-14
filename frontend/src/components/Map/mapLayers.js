@@ -46,3 +46,19 @@ export const bestRoutePolylineLayer = {
     },
 };
 
+export const distributorLocLayer = {
+    id: "distributor-loc-layer",
+    type: "symbol",
+    source: "distributor-loc-source",
+    layout: {
+        "icon-image": "bk-ccc-15",
+        "icon-allow-overlap": true,
+    },
+    paint: {
+        "text-halo-width": 1.25,
+        "text-halo-color": "rgba(255, 255, 255, 1)",
+        "text-halo-blur": 1,
+    },
+};
+
+
