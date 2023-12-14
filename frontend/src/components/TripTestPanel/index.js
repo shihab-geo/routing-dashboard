@@ -60,13 +60,13 @@ export const TripTestPanel = (props) => {
     if (getDistributorName) {
 
       //Dispatch Dist House location Data
-    // dispatch(getAgentPoints({
-    //   url: gqlUrl,
-    //   query: API_PARAMS.GET_DIST_HOUSE_LOCATION,
-    //   variables: {
-    //     "dso": dso,
-    //   }
-    // }))
+    dispatch(getDistHouseLoc({
+      url: gqlUrl,
+      query: API_PARAMS.GET_DIST_HOUSE_LOCATION,
+      variables: {
+        "dso": dso,
+      }
+    }))
       
     }
     
