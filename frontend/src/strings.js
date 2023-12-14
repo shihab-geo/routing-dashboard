@@ -1,5 +1,5 @@
 export const ACTIVE_PANEL_ROUTING = "PANEL_ROUTE";
-export const ACTIVE_PANEL_TRIPPING = "PANEL_TRIPE";
+export const ACTIVE_PANEL_TRIPPING = "PANEL_TRIP";
 
 
 export const TITLE_ROUTING = "Route Test";
