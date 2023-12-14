@@ -28,7 +28,7 @@ export const PopUpInfoBox = (props) => {
                     <>
                         <Card
                             size="small"
-                            title={STRING.INFORMATION_ROUTING}
+                            title={STRING.INFORMATION_ROUTE}
                         >
                             <div
                                 style={{
@@ -48,7 +48,7 @@ export const PopUpInfoBox = (props) => {
                     <>
                         <Card
                             size="small"
-                            title={STRING.INFORMATION_TRIPPING}
+                            title={STRING.INFORMATION_TRIP}
                         >
                             <div
                                 style={{
