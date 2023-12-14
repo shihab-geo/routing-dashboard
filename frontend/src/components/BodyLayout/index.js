@@ -31,7 +31,10 @@ export const BodyLayout = (props) => {
 
     const buttonClick = (value) => {
         if (mapRef.current === undefined) return;
-        mapRef.current.removeAllLayers()
+        mapRef.current.removeAllLayers();
+
+        //Clear the routing info
+
     }
 
 
