@@ -7,11 +7,13 @@ import {
   getAgentPoints, getDistHouseLoc
 } from "../../redux/slices/mapSlice";
 import {
-  setDso,
+  setDso, setActivePanel
 } from "../../redux/slices/selectSlice";
 import { fetchData, routingData } from "../../services/api.service";
 import { pointGeoJsonFromGeom } from "../Map/geoJsonConverter";
 import * as polylineDecode from "@mapbox/polyline";
+import * as STRING from "../../strings";
+
 
 
 
@@ -158,6 +160,13 @@ export const TripTestPanel = (props) => {
 
 
   }, [getDistributorName, getDso, showBestRoute])
+
+
+  //Dispatch the Active Panel
+  useEffect(() => {
+    dispatch(setActivePanel({ data: STRING.ACTIVE_PANEL_TRIPPING }));
+  }, [])
+
 
 
 
